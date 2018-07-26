@@ -14,7 +14,6 @@ module.exports = {
     "^react-native$": "react-native-web"
   },
   notify: true,
-  setupFiles: ["<rootDir>/config/polyfills.js"],
   setupTestFrameworkScriptFile: "./src/__tests__/setup/setupEnzyme.js",
   snapshotSerializers: [
     "enzyme-to-json/serializer"
