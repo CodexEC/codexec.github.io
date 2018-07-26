@@ -3,16 +3,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ManifestPlugin = require('webpack-manifest-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -155,45 +153,6 @@ module.exports = {
               compact: true,
             },
           },
-          // The notation here is somewhat confusing.
-        
-          // "css" loader resolves paths in CSS and adds assets as dependencies.
-          // "style" loader normally turns CSS into JS modules injecting <style>,
-          // but unlike in development configuration, we do something different.
-          // `ExtractTextPlugin` first applies the "postcss" and "css" loaders
-          // (second argument), then grabs the result CSS and puts it into a
-          // separate file in our build process. This way we actually ship
-          // a single CSS file in production instead of JS code injecting <style>
-          // tags. If you use code splitting, however, any async bundles will still
-          // use the "style" loader inside the async code so CSS from them won't be
-          // in the main CSS file.
-          // {
-          //   test: /\.css$/,
-          //   loader: ExtractTextPlugin.extract(
-          //     Object.assign(
-          //       {
-          //         fallback: {
-          //           loader: require.resolve('style-loader'),
-          //           options: {
-          //             hmr: false,
-          //           },
-          //         },
-          //         use: [
-          //           {
-          //             loader: require.resolve('css-loader'),
-          //             options: {
-          //               importLoaders: 1,
-          //               minimize: true,
-          //               sourceMap: shouldUseSourceMap,
-          //             },
-          //           },
-          //         ],
-          //       },
-          //       extractTextPluginOptions
-          //     )
-          //   ),
-          //   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-          // },
           {
             test: /\.css$/,
             use: [
@@ -230,14 +189,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
-    // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    // In production, it will be an empty string unless you specify "homepage"
-    // in `package.json`, in which case it will be the pathname of that URL.
-    // new InterpolateHtmlPlugin(env.raw),
-    // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
@@ -265,10 +216,6 @@ module.exports = {
       filename: cssFilename,
       chunkFilename: "[id].css"
     }),
-    // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    // new ExtractTextPlugin({
-      // filename: cssFilename,
-    // }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
