@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button";
 const styles = theme => ({
   root: {
     textAlign: "center",
-    paddingTop: theme.spacing.unit * 10,
+    paddingTop: theme.spacing.unit * 20,
     backgroundColor: "rgba(230, 200, 100, 0.63)",
     border: "1px dotted blue"
   }
@@ -28,7 +28,7 @@ class Bienvenido extends Component {
         </Helmet>
         <Contador />
         <Box labelOff="ON" labelOn="OFF" />
-        <Button component={Link} to="/">
+        <Button component={Link} to="/programa">
           Demostración
         </Button>
         <Button color="primary" variant="contained">

@@ -14,7 +14,7 @@ const estilos = {
 class Top extends Component {
   render() {
     return (
-      <AppBar color="secondary" position="static">
+      <AppBar color="primary" position="static">
         <Toolbar>
           <Typography color="inherit" variant="title">
             ⚖ {this.props.titulo}

@@ -1,13 +1,13 @@
-import Bienvenido from "../../contenedores/bienvenido";
+import ProgramaPagina from "../../contenedores/ProgramaPagina";
 import React from "react";
 import { render } from "enzyme";
 import { MemoryRouter as Router } from "react-router-dom";
 
-describe("<Bienvenido />", () => {
+describe("CodexEC", () => {
   it("renders without crashing", () => {
     render(
         <Router>
-          <Bienvenido />
+          <ProgramaPagina />
         </Router>
     );
   });

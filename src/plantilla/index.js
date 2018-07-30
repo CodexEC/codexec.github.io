@@ -9,14 +9,14 @@ import Bot from "./bot";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: blue[300],
-      main: blue[500],
-      dark: blue[700]
-    },
-    secondary: {
       light: teal[300],
       main: teal[500],
       dark: teal[700]
+    },
+    secondary: {
+      light: blue[300],
+      main: blue[500],
+      dark: blue[700]
     }
   }
 });

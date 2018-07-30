@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import plantilla from "../../plantilla/index";
 import Contador from "../../componentes/contador";
 
-const index = () => {
+const Index = () => {
   return (
     <div>
       <Helmet>
@@ -16,4 +16,4 @@ const index = () => {
   );
 };
 
-export default plantilla(index);
+export default plantilla(Index);

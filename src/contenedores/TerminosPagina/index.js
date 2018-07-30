@@ -9,7 +9,8 @@ import Boton from "../../componentes/boton";
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: 8 * 3
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -18,7 +19,7 @@ const styles = theme => ({
   }
 });
 
-function FullWidthGrid(props) {
+function Index(props) {
   const { classes } = props;
 
   return (
@@ -55,8 +56,8 @@ function FullWidthGrid(props) {
   );
 }
 
-FullWidthGrid.propTypes = {
+Index.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default plantilla(withStyles(styles)(FullWidthGrid));
+export default plantilla(withStyles(styles)(Index));
