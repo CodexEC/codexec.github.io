@@ -1,22 +1,25 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import BienvenidoPagina from "./contenedores/bienvenido";
-// import ConciertosPagina from "./contenedores/conciertos";
 import NoEncontradoPagina from "./contenedores/404";
+import TerminosPagina from "./contenedores/TerminosPagina";
+import PrivacidadPagina from "./contenedores/PrivacidadPagina";
 
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <Route component={BienvenidoPagina} exact={true} path="/" />
-        <Route component={NoEncontradoPagina} />
-      </Switch>
+        <BrowserRouter>
+          <Switch>
+            <Route component={BienvenidoPagina} exact={true} path="/" />
+            <Route component={NoEncontradoPagina} exact path="/404" />
+            <Route component={TerminosPagina} exact path="/terminos" />
+            <Route component={PrivacidadPagina} exact path="/privacidad" />
+            <Route component={NoEncontradoPagina} />
+          </Switch>
+        </BrowserRouter>
     );
   }
 }
 
 export default App;
-/* <Route component={ConciertosPagina} exact={true} path="/conciertos" />
-<Route component={NoEncontradoPagina} /> */

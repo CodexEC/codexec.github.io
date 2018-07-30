@@ -1,26 +1,46 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
-import Plantilla from "../../plantilla/index";
+import plantilla from "../../plantilla/index";
 import Contador from "../../componentes/contador";
 import Box from "../../componentes/box";
+import Button from "@material-ui/core/Button";
+
+const styles = theme => ({
+  root: {
+    textAlign: "center",
+    paddingTop: theme.spacing.unit * 10,
+    backgroundColor: "rgba(230, 200, 100, 0.63)",
+    border: "1px dotted blue"
+  }
+});
 
 class Bienvenido extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <Helmet>
           <title>⚖</title>
         </Helmet>
-        <Plantilla />
-        <h1>!Hola Mundo¡</h1>
         <Contador />
-        <Box labelOff="ON" labelOn="OFF"/>
+        <Box labelOff="ON" labelOn="OFF" />
+        <Button component={Link} to="/">
+          Demostración
+        </Button>
+        <Button color="primary" variant="contained">
+          Ayuda
+        </Button>
       </div>
     );
   }
 }
 
-Bienvenido.propTypes = {};
+Bienvenido.propTypes = {
+  classes: PropTypes.object.isRequired
+};
 
-export default Bienvenido;
+export default plantilla(withStyles(styles)(Bienvenido));

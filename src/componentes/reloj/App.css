@@ -1,0 +1,52 @@
+* {
+  background-color: #283149;
+
+}
+.App {
+  text-align: center;
+  font-family: "Zwizz", sans-serif;
+  font-weight: normal;
+  font-size: 28px;
+  margin-top: 15%;
+  margin-bottom: 20%;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 48px;
+  font-family: "Futura";
+  color: #F44336;
+}
+
+.Countdown-desc{
+  display: block;
+  margin-bottom: 2%;
+  color: #00818a;
+}
+
+
+.Countdown-days, .Countdown-hours, .Countdown-mins, .Countdown-secs{
+  display: inline;
+  margin: 4%;
+  color: #FFFFFF;
+}
+
+#User-Input {
+  margin-top: 2%;
+}
+
+p {
+  margin-top: 1%;
+  color: #dbedf3;
+  font-size: 12px;
+  font-style: italic;
+}
+
+
+#Btn {
+  background-color: #F44336;
+  color: #FFFFFF;
+  margin-left: 1%;
+}
+
+#Btn:hover {opacity: 1}

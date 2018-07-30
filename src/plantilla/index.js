@@ -1,24 +1,42 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import blue from "@material-ui/core/colors/blue";
+import teal from "@material-ui/core/colors/teal";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Top from "./top";
+import Bot from "./bot";
 
-import BarraArriba from "./Appbar";
-// import Header from './Header';
-import Pie from "./Footer";
-import { withRouter } from "react-router-dom";
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: blue[300],
+      main: blue[500],
+      dark: blue[700]
+    },
+    secondary: {
+      light: teal[300],
+      main: teal[500],
+      dark: teal[700]
+    }
+  }
+});
 
-class Plantilla extends Component {
-  render() {
+function importar(Component) {
+  function conPlantilla(props) {
     return (
-      <div>
-        <BarraArriba />
-        <Pie />
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <Top />
+        <Component {...props} />
+        <Bot />
+      </MuiThemeProvider>
     );
   }
+
+  return conPlantilla;
 }
 
-Plantilla.propTypes = {
-  titulo: PropTypes.string
-};
-
-export default withRouter(Plantilla);
+export default importar;
+console.log("====================================");
+console.log(">>> Plantilla");
+console.log("====================================");
