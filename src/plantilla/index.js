@@ -1,6 +1,6 @@
 import React from "react";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import blue from "@material-ui/core/colors/blue";
+import blueGrey from "@material-ui/core/colors/blueGrey";
 import teal from "@material-ui/core/colors/teal";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Top from "./top";
@@ -14,9 +14,9 @@ const theme = createMuiTheme({
       dark: teal[700]
     },
     secondary: {
-      light: blue[300],
-      main: blue[500],
-      dark: blue[700]
+      light: blueGrey[300],
+      main: blueGrey[500],
+      dark: blueGrey[700]
     }
   }
 });

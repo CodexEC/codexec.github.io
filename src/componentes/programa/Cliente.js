@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
 
 import ClientesLista from "./ClientesLista";
 import ClienteAñadir from "./ClienteAñadir";
@@ -15,6 +16,9 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: "center",
     color: theme.palette.text.secondary
+  },
+  aireBoton: {
+    margin: theme.spacing.unit
   }
 });
 
@@ -31,7 +35,6 @@ class Cliente extends Component {
       ],
       order: "asc",
       orderBy: "calorias"
-
     };
     this.handleOnAddCliente = this.handleOnAddCliente.bind(this);
   }
@@ -76,42 +79,43 @@ class Cliente extends Component {
             />
           </Paper>
         </Grid>
-        <Grid item sm={6} xs={12}>
-          <Paper>
-            xs=12 sm=6 Art. 1.- La ley es una declaración de la voluntad
-            soberana que, manifestada en la forma prescrita por la Constitución,
-            manda, prohíbe o permite. Son leyes las normas generalmente
-            obligatorias de interés común. Art. 2.- La costumbre no constituye
-            derecho sino en los casos en que la ley se remite a ella.
-          </Paper>
-        </Grid>
-        <Grid item sm={6} xs={12}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
-          <ClienteAñadir onAddCliente={this.handleOnAddCliente} />
+            <Button
+              className={classes.aireBoton}
+              color="primary"
+              variant="contained"
+              >
+              Nuevo
+            </Button>
+            <Button
+              className={classes.aireBoton}
+              color="secondary"
+              variant="contained"
+              >
+              Modificar
+            </Button>
+            <Button
+              className={classes.aireBoton}
+              color="secondary"
+              variant="contained"
+              >
+              Eliminar
+            </Button>
+            <Button
+              className={classes.aireBoton}
+              color="secondary"
+              disabled
+              variant="contained"
+              >
+              Ver Documentos
+            </Button>
           </Paper>
         </Grid>
-        <Grid item sm={3} xs={6}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-        </Grid>
-        <Grid item sm={3} xs={6}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
-        </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
-            xs=6 sm=3 Art. 1.- La ley es una declaración de la voluntad soberana
-            que, manifestada en la forma prescrita por la Constitución, manda,
-            prohíbe o permite. Son leyes las normas generalmente obligatorias de
-            interés común. Art. 2.- La costumbre no constituye derecho sino en
-            los casos en que la ley se remite a ella. Art. 1.- La ley es una
-            declaración de la voluntad soberana que, manifestada en la forma
-            prescrita por la Constitución, manda, prohíbe o permite. Son leyes
-            las normas generalmente obligatorias de interés común. Art. 2.- La
-            costumbre no constituye derecho sino en los casos en que la ley se
-            remite a ella.
+            <ClienteAñadir onAddCliente={this.handleOnAddCliente} />
           </Paper>
-        </Grid>
-        <Grid item sm={3} xs={6}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
         </Grid>
       </Grid>
     );
