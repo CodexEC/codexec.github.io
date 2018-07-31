@@ -11,13 +11,15 @@ import Grid from "@material-ui/core/Grid";
 import DescriptionIcon from "@material-ui/icons/Description";
 import AppsIcon from "@material-ui/icons/Apps";
 import CodeSharpIcon from "@material-ui/icons/CodeSharp";
+import Configuraciones from "./Configuraciones";
+import Cliente from "./Cliente";
 
 function TabContainer({ children, dir }) {
   return (
     <Typography
       component="div"
       dir={dir}
-      style={{ padding: "0 24px", marginBottom: "40px" }}
+      style={{ padding: "24px", marginBottom: "40px" }}
       >
       {children}
     </Typography>
@@ -39,13 +41,13 @@ class Programa extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: 0 };
-    console.log(this.state.value + " ESTADD");
+    // console.log(this.state.value + " ESTADD");
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event, value) {
     this.setState({ value: value });
-    console.log(this.state.value + "handle");
+    // console.log(this.state.value + "handle");
   }
 
   render() {
@@ -70,76 +72,31 @@ class Programa extends React.Component {
         <div>
           {this.state.value === 0 && (
             <TabContainer>
-              <Grid container spacing={24}>
-                <Grid item xs={12}>
-                  <Paper className={classes.paper}>
-                    <h1>Clientes</h1>
-                    <p>Art. 1.- La ley es una declaración de la voluntad soberana
-                    que, manifestada en la forma prescrita por la Constitución,
-                    manda, prohíbe o permite. Son leyes las normas generalmente
-                    obligatorias de interés común. Art. 2.- La costumbre no
-                    constituye derecho sino en los casos en que la ley se remite
-                    a ella.</p>
-                  </Paper>
-                </Grid>
-                <Grid item sm={6} xs={12}>
-                  <Paper className={classes.paper}>
-                    xs=12 sm=6 Art. 1.- La ley es una declaración de la voluntad
-                    soberana que, manifestada en la forma prescrita por la
-                    Constitución, manda, prohíbe o permite. Son leyes las normas
-                    generalmente obligatorias de interés común. Art. 2.- La
-                    costumbre no constituye derecho sino en los casos en que la
-                    ley se remite a ella.
-                  </Paper>
-                </Grid>
-                <Grid item sm={6} xs={12}>
-                  <Paper className={classes.paper}>xs=12 sm=6</Paper>
-                </Grid>
-                <Grid item sm={3} xs={6}>
-                  <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                </Grid>
-                <Grid item sm={3} xs={6}>
-                  <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                </Grid>
-                <Grid item sm={3} xs={6}>
-                  <Paper className={classes.paper}>
-                    xs=6 sm=3 Art. 1.- La ley es una declaración de la voluntad
-                    soberana que, manifestada en la forma prescrita por la
-                    Constitución, manda, prohíbe o permite. Son leyes las normas
-                    generalmente obligatorias de interés común. Art. 2.- La
-                    costumbre no constituye derecho sino en los casos en que la
-                    ley se remite a ella. Art. 1.- La ley es una declaración de
-                    la voluntad soberana que, manifestada en la forma prescrita
-                    por la Constitución, manda, prohíbe o permite. Son leyes las
-                    normas generalmente obligatorias de interés común. Art. 2.-
-                    La costumbre no constituye derecho sino en los casos en que
-                    la ley se remite a ella.
-                  </Paper>
-                </Grid>
-                <Grid item sm={3} xs={6}>
-                  <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                </Grid>
-              </Grid>
+              <Cliente />
             </TabContainer>
           )}
-          {this.state.value === 1 &&
+          {this.state.value === 1 && (
             <TabContainer>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Paper className={classes.paper}>
                     <h1>Códigos</h1>
                     <Typography>
-                    remite a ella. Art. 1.- La ley es una declaración de
-                    la voluntad soberana que, manifestada en la forma prescrita
-                    por la Constitución, manda, prohíbe o permite. Son leyes las
-                    normas generalmente obligator
+                      remite a ella. Art. 1.- La ley es una declaración de la
+                      voluntad soberana que, manifestada en la forma prescrita
+                      por la Constitución, manda, prohíbe o permite. Son leyes
+                      las normas generalmente obligator
                     </Typography>
                   </Paper>
                 </Grid>
               </Grid>
             </TabContainer>
-          }
-          {this.state.value === 2 && <TabContainer>Configs</TabContainer>}
+          )}
+          {this.state.value === 2 && (
+            <TabContainer>
+              <Configuraciones tema="light"/>
+            </TabContainer>
+          )}
         </div>
       </div>
     );

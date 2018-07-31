@@ -3,20 +3,21 @@ import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
 import plantilla from "../../plantilla/index";
-import Contador from "../../componentes/contador";
-import Box from "../../componentes/box";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
-const styles = theme => ({
+const styles = {
   root: {
+    paddingTop: "100px",
     textAlign: "center",
-    paddingTop: theme.spacing.unit * 20,
-    backgroundColor: "rgba(230, 200, 100, 0.63)",
-    border: "1px dotted blue"
+    margin: "0 10px 40px 10px",
+    background: "cyan",
+    height: "100%",
+    position: "absolute"
   }
-});
+};
 
 class Bienvenido extends Component {
   render() {
@@ -26,14 +27,35 @@ class Bienvenido extends Component {
         <Helmet>
           <title>⚖</title>
         </Helmet>
-        <Contador />
-        <Box labelOff="ON" labelOn="OFF" />
-        <Button component={Link} to="/programa">
-          Demostración
-        </Button>
-        <Button color="primary" variant="contained">
-          Ayuda
-        </Button>
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
+            <Typography gutterBottom variant="display3">
+              ¿Qué es CodexEC?
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="headline"
+              >
+              Es una aplicación multiplataforma para el control y manejo de los documentos <b>privados</b> de los clientes de nuestro estudio juridico; además se proveen los principales códigos vigentes en el Ecuador.
+            </Typography>
+            <Button
+              color="primary"
+              component={Link}
+              style={{ margin: "8px" }}
+              to="/programa"
+              variant="contained"
+              >
+              Ingreso
+            </Button>
+            <Button
+              color="primary"
+              style={{ margin: "8px" }}
+              variant="contained"
+              >
+              Nosotros
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     );
   }

@@ -10,7 +10,12 @@ import Boton from "../../componentes/boton";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: 8 * 3
+    padding: 8 * 3,
+    marginBottom: "40px",
+    background: "red",
+    height: "100%",
+    width: "100%",
+    position: "absolute"
   },
   paper: {
     padding: theme.spacing.unit * 2,
