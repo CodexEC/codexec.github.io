@@ -16,6 +16,17 @@ const styles = {
     background: "cyan",
     height: "100%",
     position: "absolute"
+  },
+  bie: {
+    flex: "0 0 auto",
+    color: "#1976d2",
+    display: "flex",
+    textAlign: "justify",
+    minHeight: "80vh",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    margin: " 0 25px"
   }
 };
 
@@ -23,14 +34,14 @@ class Bienvenido extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
+      <div className={classes.bie}>
         <Helmet>
           <title>⚖</title>
         </Helmet>
         <Grid container spacing={16}>
           <Grid item xs={12}>
             <Typography gutterBottom variant="display3">
-              ¿Qué es CodexEC?
+              CodexEC
             </Typography>
             <Typography
               gutterBottom
