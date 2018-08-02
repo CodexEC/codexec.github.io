@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -11,7 +12,13 @@ const ClienteAñadir = props => {
           required
           type="text"
         />
-        <input name="ci_cliente" placeholder="CI" required type="text" />
+        <input
+          autoFocus={true}
+          name="ci_cliente"
+          placeholder="CI"
+          required
+          type="text"
+        />
         <input
           name="id_cliente"
           readOnly
