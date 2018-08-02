@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 // import { withStyles } from "@material-ui/core/styles";
 // TODO: implementar tabla cargada y con un checkbox que capture el id.
 const ClientesLista = props => {
-
+console.log(props);
   return (
     <div>
+      <h1>Today{"'"}s Bulletin</h1>
       <ul>
-        {props.clientes.map(clientes => (
-          <li key={clientes.id}>
-            {clientes.id} - {clientes.nombre} +++ {clientes.ci}
+        {props && props.clientes.map(clientes => (
+          <li key={clientes.actor_id}>
+            {clientes.first_name} - {clientes.last_name}
           </li>
         ))}
       </ul>

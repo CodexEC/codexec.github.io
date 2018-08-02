@@ -7,13 +7,13 @@ const ClienteAñadir = props => {
       <form onSubmit={props.onAddCliente}>
         <input
           name="nombre_cliente"
-          placeholder="Nombre"
+          placeholder="Nombres"
           required
           type="text"
         />
         <input
-          name="ci_cliente"
-          placeholder="CI"
+          name="apellido_cliente"
+          placeholder="Apellidos"
           required
           type="text"
         />
@@ -21,7 +21,7 @@ const ClienteAñadir = props => {
           name="id_cliente"
           readOnly
           type="text"
-          value={Math.floor(Math.random() * 100)}
+          value={Math.floor((Math.random() * 500) + 1000)}
         />
         <input type="submit" value="Guardar" />
       </form>

@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import { ClienteServicio } from "../../servicio/ClienteServicio";
 
 import ClientesLista from "./ClientesLista";
 import ClienteAñadir from "./ClienteAñadir";
@@ -26,43 +27,43 @@ class Cliente extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clientes: [
-        { id: 1, nombre: "Jhon", ci: "17190678777" },
-        { id: 2, nombre: "WIlson", ci: "17190678777" },
-        { id: 3, nombre: "Ecuador", ci: "17190678777" },
-        { id: 4, nombre: "Odiceo", ci: "17190678777" },
-        { id: 5, nombre: "Karina", ci: "17190678777" }
-      ],
+      datosClientes: [],
       order: "asc",
-      orderBy: "calorias"
+      orderBy: "ree"
     };
     this.handleOnAddCliente = this.handleOnAddCliente.bind(this);
+    this.clienteservicio = new ClienteServicio();
   }
 
   handleOnAddCliente(e) {
-    console.log("====================================");
-    console.log("ON AÑADIR");
-    console.log("====================================");
     e.preventDefault();
     let form = e.target,
       cliente = {
-        id: form.id_cliente.value,
-        nombre: form.nombre_cliente.value,
-        ci: form.ci_cliente.value
+        /* eslint-disable-next-line */
+        actor_id: form.id_cliente.value,
+        /* eslint-disable-next-line */
+        first_name: form.nombre_cliente.value,
+        /* eslint-disable-next-line */
+        last_name: form.apellido_cliente.value
       };
     this.setState({
-      clientes: this.state.clientes.concat([cliente])
+      datosClientes: this.state.datosClientes.concat([cliente])
     });
     form.reset();
   }
 
   componentWillMount() {
     console.log("====================================");
-    console.log("Cargo Clientes " + this.state.clientes);
+    console.log("componentWillMount" + this.state.datosClientes);
     console.log("====================================");
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("====================================");
+    console.log("componentDidMount" + this.state.datosClientes);
+    console.log("====================================");
+    this.datosClientes = this.clienteservicio.traerClientes(this);
+  }
 
   componentWillUnmount() {}
 
@@ -72,9 +73,8 @@ class Cliente extends Component {
       <Grid container spacing={16}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <h1>Lista Clientes</h1>
             <ClientesLista
-              clientes={this.state.clientes}
+              clientes={this.state.datosClientes}
               ordenarPor={this.state.orderBy}
             />
           </Paper>
