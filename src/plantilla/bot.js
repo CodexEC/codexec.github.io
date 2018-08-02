@@ -56,6 +56,3 @@ Bot.propTypes = {
 };
 
 export default withStyles(footerEstilos)(Bot);
-console.log("====================================");
-console.log("> BOT");
-console.log("====================================");

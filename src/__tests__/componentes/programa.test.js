@@ -6,9 +6,10 @@ import { MemoryRouter as Router } from "react-router-dom";
 describe("CodexEC", () => {
   it("renders without crashing", () => {
     render(
-        <Router>
-          <ProgramaPagina />
-        </Router>
+      <Router>
+        <ProgramaPagina />
+      </Router>
     );
   });
+  console.log("CODEX > 100%");
 });

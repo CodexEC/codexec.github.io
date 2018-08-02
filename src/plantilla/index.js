@@ -37,6 +37,3 @@ function importar(Component) {
 }
 
 export default importar;
-console.log("====================================");
-console.log(">>> Plantilla");
-console.log("====================================");

@@ -34,6 +34,3 @@ Top.propTypes = {
 };
 
 export default withStyles(estilos)(Top);
-console.log("====================================");
-console.log("> TOP");
-console.log("====================================");
