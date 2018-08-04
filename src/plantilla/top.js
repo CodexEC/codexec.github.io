@@ -54,7 +54,7 @@ class Top extends Component {
                 />
                 <Tooltip
                   placement="bottom"
-                  style={{ display: "noe" }}
+                  style={{ display: "none" }}
                   title="Cerrar Búsqueda"
                   >
                   <IconButton aria-label="Cerrar Búsqueda" color="default">
