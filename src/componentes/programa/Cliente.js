@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import { ClienteServicio } from "../../servicio/ClienteServicio";
-
+import Loader from "../../plantilla/loader";
 import ClientesLista from "./ClientesLista";
 import ClienteAñadir from "./ClienteAñadir";
 
@@ -14,7 +14,6 @@ const styles = theme => ({
     flexGrow: 1
   },
   paper: {
-    padding: theme.spacing.unit * 2,
     textAlign: "center",
     color: theme.palette.text.secondary
   },
@@ -52,73 +51,69 @@ class Cliente extends Component {
     form.reset();
   }
 
-  componentWillMount() {
-    console.log("====================================");
-    console.log("componentWillMount" + this.state.datosClientes);
-    console.log("====================================");
-  }
+  componentWillMount() {}
 
   componentDidMount() {
-    console.log("====================================");
-    console.log("componentDidMount" + this.state.datosClientes);
-    console.log("====================================");
     this.datosClientes = this.clienteservicio.traerClientes(this);
+    // this.clienteservicio.traerClientes().then(data => this.setState({datosClientes: data}));
   }
 
   componentWillUnmount() {}
 
   render() {
     const { classes } = this.props;
-    return (
-      <Grid container spacing={16}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <ClientesLista
-              clientes={this.state.datosClientes}
-              ordenarPor={this.state.orderBy}
-            />
-          </Paper>
+    if (!this.state.datosClientes.length) {
+      return <Loader />;
+    } else {
+      return (
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <ClienteAñadir onAddCliente={this.handleOnAddCliente} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <Button
+                className={classes.aireBoton}
+                color="primary"
+                variant="contained"
+                >
+                Nuevo
+              </Button>
+              <Button
+                className={classes.aireBoton}
+                color="secondary"
+                variant="contained"
+                >
+                Modificar
+              </Button>
+              <Button
+                className={classes.aireBoton}
+                color="secondary"
+                onClick={this.eliminarDatos}
+                variant="contained"
+                >
+                Eliminar
+              </Button>
+              <Button
+                className={classes.aireBoton}
+                color="secondary"
+                disabled
+                variant="contained"
+                >
+                Ver Documentos
+              </Button>
+              <ClientesLista
+                clientes={this.state.datosClientes}
+                fetchControl={this.state.fetchControl}
+                ordenarPor={this.state.orderBy}
+              />
+            </Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Button
-              className={classes.aireBoton}
-              color="primary"
-              variant="contained"
-              >
-              Nuevo
-            </Button>
-            <Button
-              className={classes.aireBoton}
-              color="secondary"
-              variant="contained"
-              >
-              Modificar
-            </Button>
-            <Button
-              className={classes.aireBoton}
-              color="secondary"
-              variant="contained"
-              >
-              Eliminar
-            </Button>
-            <Button
-              className={classes.aireBoton}
-              color="secondary"
-              disabled
-              variant="contained"
-              >
-              Ver Documentos
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <ClienteAñadir onAddCliente={this.handleOnAddCliente} />
-          </Paper>
-        </Grid>
-      </Grid>
-    );
+      );
+    }
   }
 }
 

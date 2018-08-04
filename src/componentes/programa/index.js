@@ -94,7 +94,7 @@ class Programa extends React.Component {
           )}
           {this.state.value === 2 && (
             <TabContainer>
-              <Configuraciones tema="light"/>
+              <Configuraciones tema="light" />
             </TabContainer>
           )}
         </div>

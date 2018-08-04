@@ -7,13 +7,12 @@ import Programa from "../../componentes/programa";
 
 function ProgramaPagina() {
   // const { classes } = props;
-
   return (
     <div>
       <Helmet>
         <title>CodexEC</title>
       </Helmet>
-      <Programa/>
+      <Programa />
     </div>
   );
 }
