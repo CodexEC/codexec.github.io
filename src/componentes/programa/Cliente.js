@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
+
 import { ClienteServicio } from "../../servicio/ClienteServicio";
 import Loader from "../../plantilla/loader";
 import ClientesLista from "./ClientesLista";
@@ -16,9 +16,6 @@ const styles = theme => ({
   paper: {
     textAlign: "center",
     color: theme.palette.text.secondary
-  },
-  aireBoton: {
-    margin: theme.spacing.unit
   }
 });
 
@@ -73,37 +70,7 @@ class Cliente extends Component {
             </Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              <Button
-                className={classes.aireBoton}
-                color="primary"
-                variant="contained"
-                >
-                Nuevo
-              </Button>
-              <Button
-                className={classes.aireBoton}
-                color="secondary"
-                variant="contained"
-                >
-                Modificar
-              </Button>
-              <Button
-                className={classes.aireBoton}
-                color="secondary"
-                onClick={this.eliminarDatos}
-                variant="contained"
-                >
-                Eliminar
-              </Button>
-              <Button
-                className={classes.aireBoton}
-                color="secondary"
-                disabled
-                variant="contained"
-                >
-                Ver Documentos
-              </Button>
+            <Paper>
               <ClientesLista
                 clientes={this.state.datosClientes}
                 fetchControl={this.state.fetchControl}

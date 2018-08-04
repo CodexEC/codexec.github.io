@@ -2,15 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 // import SwipeableViews from "react-swipeable-views";
+
+import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import DescriptionIcon from "@material-ui/icons/Description";
-import AppsIcon from "@material-ui/icons/Apps";
-import CodeSharpIcon from "@material-ui/icons/CodeSharp";
+import DescriptionIcon from "@material-ui/icons/PersonPinTwoTone";
+import AppsIcon from "@material-ui/icons/SchoolTwoTone";
+import IconConfiguraciones from "@material-ui/icons/SettingsApplicationsTwoTone";
+import IconSalir from "@material-ui/icons/ExitToAppTwoTone";
 import Configuraciones from "./Configuraciones";
 import Cliente from "./Cliente";
 
@@ -66,8 +69,9 @@ class Programa extends React.Component {
             >
             <Tab icon={<DescriptionIcon />} label="clientes" />
             <Tab icon={<AppsIcon />} label="códigos" />
-            <Tab icon={<CodeSharpIcon />} label="config" />
-          </Tabs>
+            <Tab icon={<IconConfiguraciones />} label="config" />
+            <Tab component={Link} icon={<IconSalir />} label="salir" to={"/"}/>
+            </Tabs>
         </AppBar>
         <div>
           {this.state.value === 0 && (

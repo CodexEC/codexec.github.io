@@ -26,7 +26,7 @@ function importar(Component) {
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Top titulo="Rodríguez & Asociados" />
+        <Top titulo="" />
         <Component {...props} />
         <Bot />
       </MuiThemeProvider>
