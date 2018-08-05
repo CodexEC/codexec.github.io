@@ -7,9 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 
-import ImprimirIcono from "@material-ui/icons/Print";
-import ViewStreamIcon from "@material-ui/icons/ViewStream";
-import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
+import ImprimirIcono from "@material-ui/icons/Person";
 
 // TODO: bindiar los right iconos busqueda y vistas
 
@@ -26,7 +24,6 @@ const estilos = {
 class Top extends Component {
   render() {
     const classes = this.props.classes;
-    const viewtype = "grid";
 
     return (
       <AppBar color="primary" position="static">
@@ -37,16 +34,8 @@ class Top extends Component {
             </Typography>
           </div>
           <div>
-            <Tooltip
-              placement="bottom"
-              title={viewtype === "grid" ? "Vista Lista" : "Vista Grilla"}
-              >
-              <IconButton aria-label="View Type" color="default">
-                {viewtype === "grid" ? <ViewStreamIcon /> : <ViewQuiltIcon />}
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Vista Impresión">
-              <IconButton aria-label="Vista Impresión" color="default">
+            <Tooltip title="Ingreso">
+              <IconButton aria-label="Ingreso" color="inherit">
                 <ImprimirIcono />
               </IconButton>
             </Tooltip>

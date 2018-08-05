@@ -28,13 +28,15 @@ class Cliente extends Component {
       orderBy: "ree",
       showLista: true,
       showSearch: false,
-      checked: [0]
+      checked: [0],
+      vista: "lista"
     };
     this.handleOnAddCliente = this.handleOnAddCliente.bind(this);
     this.handleNuevoCliente = this.handleNuevoCliente.bind(this);
     this.handleAnyInputChange = this.handleAnyInputChange.bind(this);
     this.handleSearchToggle = this.handleSearchToggle.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
+    this.handleLayoutChange = this.handleLayoutChange.bind(this);
     // @lodash
     // this.deBounced = debounce(this.handleSearchSubmit, 450)
     this.clienteservicio = new ClienteServicio();
@@ -76,6 +78,14 @@ class Cliente extends Component {
     });
   }
 
+  handleLayoutChange() {
+    const newVal = this.state.vista === "lista" ? "simple" : "lista";
+    window.localStorage.setItem("l-type", newVal);
+    this.setState({
+      vista: newVal
+    });
+  }
+
   handleToggle(value) {
     // const { checked } = this.state;
     const checked = this.state.checked;
@@ -92,6 +102,7 @@ class Cliente extends Component {
       checked: newChecked
     });
   }
+
 
   componentWillMount() {}
 
@@ -116,11 +127,13 @@ class Cliente extends Component {
                 clientes={this.state.datosClientes}
                 fetchControl={this.state.fetchControl}
                 handleAnyInputChange={this.handleAnyInputChange}
+                handleLayoutChange={this.handleLayoutChange}
                 handleNuevoCliente={this.handleNuevoCliente}
                 handleSearchToggle={this.handleSearchToggle}
                 handleToggle={this.handleToggle}
                 ordenarPor={this.state.orderBy}
                 showSearch={this.state.showSearch}
+                vista={this.state.vista}
               />
             </Paper>
           </Grid>

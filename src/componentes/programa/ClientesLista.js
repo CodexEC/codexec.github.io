@@ -8,15 +8,14 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
+import PrintIcon from "@material-ui/icons/Print";
+import ViewStreamIcon from "@material-ui/icons/ViewList";
+import ViewQuiltIcon from "@material-ui/icons/ViewAgenda";
 import TextField from "@material-ui/core/TextField";
 import Tooltip from "@material-ui/core/Tooltip";
 import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-// import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
-import Checkbox from "@material-ui/core/Checkbox";
-// import CommentIcon from "@material-ui/icons/Comment";
+
+import GridRenderer from "../../plantilla/TiposVista/GridRenderer";
 
 // TODO: implementar tabla cargada y con un checkbox que capture el id.
 // TODO: implementar un componente busqueda
@@ -45,30 +44,36 @@ const ClientesLista = props => {
     <div>
       <div className={classes.bie}>
         <div>
-          <IconButton
-            aria-label="Delete"
-            className={classes.aireBoton}
-            color="primary"
-            onClick={props.handleNuevoCliente}
-            >
-            <NewIcon />
-          </IconButton>
-          <IconButton
-            aria-label="Delete"
-            className={classes.aireBoton}
-            color="primary"
-            disabled={true}
-            >
-            <EditIcon />
-          </IconButton>
-          <IconButton
-            aria-label="Delete"
-            className={classes.aireBoton}
-            color="primary"
-            disabled={true}
-            >
-            <DeleteIcon />
-          </IconButton>
+          <Tooltip placement="bottom" title="Nuevo">
+            <IconButton
+              aria-label="Nuevo"
+              className={classes.aireBoton}
+              color="primary"
+              onClick={props.handleNuevoCliente}
+              >
+              <NewIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Editar">
+            <IconButton
+              aria-label="Editar"
+              className={classes.aireBoton}
+              color="primary"
+              disabled={false}
+              >
+              <EditIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Borrar">
+            <IconButton
+              aria-label="Borrar"
+              className={classes.aireBoton}
+              color="primary"
+              disabled={false}
+              >
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
           <Button
             className={classes.aireBoton}
             color="primary"
@@ -78,11 +83,31 @@ const ClientesLista = props => {
             >
             Ver Documentos
           </Button>
+          <Tooltip
+            placement="bottom"
+            title={props.vista === "lista" ? "Vista Simple" : "Vista Lista"}
+            >
+            <IconButton
+              aria-label="Tipo Vista"
+              color="primary"
+              onClick={props.handleLayoutChange}
+              >
+              {props.vista === "simple" ? (
+                <ViewStreamIcon />
+              ) : (
+                <ViewQuiltIcon />
+              )}
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Vista Impresión">
+            <IconButton aria-label="Vista Impresión" color="primary">
+              <PrintIcon />
+            </IconButton>
+          </Tooltip>
         </div>
         <div>
           {props.showSearch ? (
             <div>
-              {" "}
               <TextField
                 name="searchText"
                 onChange={props.handleAnyInputChange}
@@ -115,23 +140,7 @@ const ClientesLista = props => {
       </div>
       <Divider />
       <div>
-        <List>
-          {props &&
-            props.clientes.map(clientes => (
-              <ListItem button dense disableGutters divider key={clientes.actor_id}>
-                <Checkbox disableRipple tabIndex={-1} />
-                <div>
-                  <ListItemText primary={clientes.actor_id} />
-                </div>
-                <div>
-                  <ListItemText
-                    primary={clientes.first_name}
-                    secondary={clientes.last_name}
-                  />
-                </div>
-              </ListItem>
-            ))}
-        </List>
+        <GridRenderer clientes={props.clientes} vista={props.vista} />
       </div>
     </div>
   );
@@ -164,7 +173,9 @@ ClientesLista.propTypes = {
   handleAnyInputChange: PropTypes.func,
   handleSearchToggle: PropTypes.func,
   handleToggle: PropTypes.func,
-  checked: PropTypes.array
+  checked: PropTypes.array,
+  vista: PropTypes.string,
+  handleLayoutChange: PropTypes.func
 };
 
 export default withStyles(styles)(ClientesLista);

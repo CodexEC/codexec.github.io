@@ -33,7 +33,7 @@ const ClienteAñadir = props => {
     <div>
       <div className={classes.bie}>
         <IconButton
-          aria-label="Delete"
+          aria-label="Nuevo"
           className={classes.aireControl}
           color="primary"
           onClick={props.handleNuevoCliente}

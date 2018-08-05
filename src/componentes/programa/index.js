@@ -71,7 +71,7 @@ class Programa extends React.Component {
             <Tab icon={<AppsIcon />} label="códigos" />
             <Tab icon={<IconConfiguraciones />} label="config" />
             <Tab component={Link} icon={<IconSalir />} label="salir" to={"/"}/>
-            </Tabs>
+          </Tabs>
         </AppBar>
         <div>
           {this.state.value === 0 && (
