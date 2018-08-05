@@ -25,9 +25,18 @@ class Cliente extends Component {
     this.state = {
       datosClientes: [],
       order: "asc",
-      orderBy: "ree"
+      orderBy: "ree",
+      showLista: true,
+      showSearch: false,
+      checked: [0]
     };
     this.handleOnAddCliente = this.handleOnAddCliente.bind(this);
+    this.handleNuevoCliente = this.handleNuevoCliente.bind(this);
+    this.handleAnyInputChange = this.handleAnyInputChange.bind(this);
+    this.handleSearchToggle = this.handleSearchToggle.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    // @lodash
+    // this.deBounced = debounce(this.handleSearchSubmit, 450)
     this.clienteservicio = new ClienteServicio();
   }
 
@@ -43,9 +52,45 @@ class Cliente extends Component {
         last_name: form.apellido_cliente.value
       };
     this.setState({
-      datosClientes: this.state.datosClientes.concat([cliente])
+      datosClientes: this.state.datosClientes.concat([cliente]),
+      showLista: true
     });
     form.reset();
+  }
+  handleNuevoCliente() {
+    this.setState({
+      showLista: !this.state.showLista
+    });
+  }
+  // captura el teclado
+  handleAnyInputChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    // this.deBounced();
+  }
+
+  handleSearchToggle() {
+    this.setState({
+      showSearch: !this.state.showSearch
+    });
+  }
+
+  handleToggle(value) {
+    // const { checked } = this.state;
+    const checked = this.state.checked;
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    this.setState({
+      checked: newChecked
+    });
   }
 
   componentWillMount() {}
@@ -61,21 +106,32 @@ class Cliente extends Component {
     const { classes } = this.props;
     if (!this.state.datosClientes.length) {
       return <Loader />;
+    } else if (this.state.showLista) {
+      return (
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
+            <Paper>
+              <ClientesLista
+                checked={this.state.checked}
+                clientes={this.state.datosClientes}
+                fetchControl={this.state.fetchControl}
+                handleAnyInputChange={this.handleAnyInputChange}
+                handleNuevoCliente={this.handleNuevoCliente}
+                handleSearchToggle={this.handleSearchToggle}
+                handleToggle={this.handleToggle}
+                ordenarPor={this.state.orderBy}
+                showSearch={this.state.showSearch}
+              />
+            </Paper>
+          </Grid>
+        </Grid>
+      );
     } else {
       return (
         <Grid container spacing={16}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <ClienteAñadir onAddCliente={this.handleOnAddCliente} />
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper>
-              <ClientesLista
-                clientes={this.state.datosClientes}
-                fetchControl={this.state.fetchControl}
-                ordenarPor={this.state.orderBy}
-              />
+              <ClienteAñadir handleNuevoCliente={this.handleNuevoCliente} onAddCliente={this.handleOnAddCliente} />
             </Paper>
           </Grid>
         </Grid>
