@@ -1,24 +1,32 @@
-/* eslint-disable */
-// TODO: implemetar una vista tipo reporte
 import React from "react";
-import Grid from "material-ui/Grid";
-// import PostPreview from "../PostPreview";
+import PropTypes from "prop-types";
+import AttachmentIcon from "@material-ui/icons/Attachment";
+import IconButton from "@material-ui/core/IconButton";
 
-const PrintView = ({ posts }) => (
-  <Grid container justify="center">
-    <Grid item xs={12}>
-      <h1>Today{"'"}s Bulletin</h1>
-      {posts &&
-        posts.edges.map(post => (
-          <PostPreview
-            content={post.node.content}
-            key={post.node.id}
-            title={post.node.title}
-            view="print"
-          />
+const Imp = ({ clientes, totalClientes }) => {
+  return (
+    <div style={{ fontFamily: "consolas", textAlign: "center" }}>
+      <h1>
+        <u>Total Clientes: {totalClientes}</u>
+      </h1>
+      {clientes &&
+        clientes.map(clientes => (
+          <li key={clientes.actor_id} style={{listStyle: "none"}}>
+            {clientes.first_name} - {clientes.last_name}
+          </li>
         ))}
-    </Grid>
-  </Grid>
-);
+      <h4>Attachments</h4>
+      <hr />
+      <IconButton>
+        <AttachmentIcon /> AttachmentIcon
+      </IconButton>
+    </div>
+  );
+};
 
-export default PrintView;
+Imp.propTypes = {
+  clientes: PropTypes.array.isRequired,
+  totalClientes: PropTypes.number
+};
+
+export default Imp;

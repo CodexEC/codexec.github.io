@@ -11,6 +11,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import PrintIcon from "@material-ui/icons/Print";
 import ViewStreamIcon from "@material-ui/icons/ViewList";
 import ViewQuiltIcon from "@material-ui/icons/ViewAgenda";
+import TablaIcono from "@material-ui/icons/Tab";
+import TablaSimpleIcono from "@material-ui/icons/TableChart";
 import TextField from "@material-ui/core/TextField";
 import Tooltip from "@material-ui/core/Tooltip";
 import Divider from "@material-ui/core/Divider";
@@ -85,22 +87,38 @@ const ClientesLista = props => {
           </Button>
           <Tooltip
             placement="bottom"
-            title={props.vista === "lista" ? "Vista Simple" : "Vista Lista"}
+            title={props.vista === "lista" ? "Simple" : "Lista"}
             >
             <IconButton
               aria-label="Tipo Vista"
               color="primary"
-              onClick={props.handleLayoutChange}
+              onClick={props.handlearCambioVistaLista}
               >
-              {props.vista === "simple" ? (
+              {props.vista === "l-simple" ? (
                 <ViewStreamIcon />
               ) : (
                 <ViewQuiltIcon />
               )}
             </IconButton>
           </Tooltip>
+          <Tooltip
+            placement="bottom"
+            title={props.vista === "tabla" ? "Simple" : "Tabla"}
+            >
+            <IconButton
+              aria-label="Tipo Vista"
+              color="primary"
+              onClick={props.handlearCambioVistaTabla}
+              >
+              {props.vista === "t-simple" ? (
+                <TablaIcono />
+              ) : (
+                <TablaSimpleIcono />
+              )}
+            </IconButton>
+          </Tooltip>
           <Tooltip title="Vista Impresión">
-            <IconButton aria-label="Vista Impresión" color="primary">
+            <IconButton aria-label="Vista Impresión" color="primary" onClick={props.handlearCambioVistaImpresion}>
               <PrintIcon />
             </IconButton>
           </Tooltip>
@@ -140,7 +158,7 @@ const ClientesLista = props => {
       </div>
       <Divider />
       <div>
-        <GridRenderer clientes={props.clientes} vista={props.vista} />
+        <GridRenderer clientes={props.clientes} totalClientes={props.totalClientes} vista={props.vista}/>
       </div>
     </div>
   );
@@ -175,7 +193,10 @@ ClientesLista.propTypes = {
   handleToggle: PropTypes.func,
   checked: PropTypes.array,
   vista: PropTypes.string,
-  handleLayoutChange: PropTypes.func
+  handlearCambioVistaLista: PropTypes.func,
+  handlearCambioVistaTabla: PropTypes.func,
+  handlearCambioVistaImpresion: PropTypes.func,
+  totalClientes: PropTypes.number
 };
 
 export default withStyles(styles)(ClientesLista);

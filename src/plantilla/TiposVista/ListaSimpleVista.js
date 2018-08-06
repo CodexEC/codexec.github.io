@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SimpleVista = props => {
+const ListaSimpleVista = props => {
   return (
     <div>
       <ul >
@@ -15,8 +15,8 @@ const SimpleVista = props => {
   );
 };
 
-SimpleVista.propTypes = {
+ListaSimpleVista.propTypes = {
   clientes: PropTypes.array.isRequired
 };
 
-export default SimpleVista;
+export default ListaSimpleVista;

@@ -26,17 +26,20 @@ class Cliente extends Component {
       datosClientes: [],
       order: "asc",
       orderBy: "ree",
-      showLista: true,
+      showLista: false,
       showSearch: false,
       checked: [0],
-      vista: "lista"
+      vista: "lista",
+      totalClientes: 0
     };
     this.handleOnAddCliente = this.handleOnAddCliente.bind(this);
     this.handleNuevoCliente = this.handleNuevoCliente.bind(this);
     this.handleAnyInputChange = this.handleAnyInputChange.bind(this);
     this.handleSearchToggle = this.handleSearchToggle.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
-    this.handleLayoutChange = this.handleLayoutChange.bind(this);
+    this.handlearCambioVistaLista = this.handlearCambioVistaLista.bind(this);
+    this.handlearCambioVistaTabla = this.handlearCambioVistaTabla.bind(this);
+    this.handlearCambioVistaImpresion = this.handlearCambioVistaImpresion.bind(this);
     // @lodash
     // this.deBounced = debounce(this.handleSearchSubmit, 450)
     this.clienteservicio = new ClienteServicio();
@@ -55,7 +58,7 @@ class Cliente extends Component {
       };
     this.setState({
       datosClientes: this.state.datosClientes.concat([cliente]),
-      showLista: true
+      showLista: !this.state.showLista
     });
     form.reset();
   }
@@ -78,10 +81,24 @@ class Cliente extends Component {
     });
   }
 
-  handleLayoutChange() {
-    const newVal = this.state.vista === "lista" ? "simple" : "lista";
-    window.localStorage.setItem("l-type", newVal);
+  handlearCambioVistaLista() {
+    const newVal = this.state.vista === "lista" ? "l-simple" : "lista";
+    window.localStorage.setItem("vista", newVal);
     this.setState({
+      vista: newVal
+    });
+  }
+  handlearCambioVistaTabla() {
+    const newVal = this.state.vista === "tabla" ? "t-simple" : "tabla";
+    window.localStorage.setItem("vista", newVal);
+    this.setState({
+      vista: newVal
+    });
+  }
+  handlearCambioVistaImpresion() {
+    const newVal = "impresion";
+    this.setState({
+      totalClientes: this.state.datosClientes.length,
       vista: newVal
     });
   }
@@ -102,7 +119,6 @@ class Cliente extends Component {
       checked: newChecked
     });
   }
-
 
   componentWillMount() {}
 
@@ -127,12 +143,15 @@ class Cliente extends Component {
                 clientes={this.state.datosClientes}
                 fetchControl={this.state.fetchControl}
                 handleAnyInputChange={this.handleAnyInputChange}
-                handleLayoutChange={this.handleLayoutChange}
+                handlearCambioVistaImpresion={this.handlearCambioVistaImpresion}
+                handlearCambioVistaLista={this.handlearCambioVistaLista}
+                handlearCambioVistaTabla={this.handlearCambioVistaTabla}
                 handleNuevoCliente={this.handleNuevoCliente}
                 handleSearchToggle={this.handleSearchToggle}
                 handleToggle={this.handleToggle}
                 ordenarPor={this.state.orderBy}
                 showSearch={this.state.showSearch}
+                totalClientes={this.state.totalClientes}
                 vista={this.state.vista}
               />
             </Paper>
@@ -144,7 +163,10 @@ class Cliente extends Component {
         <Grid container spacing={16}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <ClienteAñadir handleNuevoCliente={this.handleNuevoCliente} onAddCliente={this.handleOnAddCliente} />
+              <ClienteAñadir
+                handleNuevoCliente={this.handleNuevoCliente}
+                onAddCliente={this.handleOnAddCliente}
+              />
             </Paper>
           </Grid>
         </Grid>

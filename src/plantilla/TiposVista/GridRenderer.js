@@ -1,24 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ListaVista from "./ListaVista";
-import SimpleVista from "./SimpleVista";
+import ListaSimpleVista from "./ListaSimpleVista";
+import TablaVista from "./TablaVista";
+import TablaSimpleVista from "./TablaSimpleVista";
+import ImpresionVista from "./ImpresionVista";
 // TODO: implementar vista impresion y  vista vcard para cualquier dato
 
-const GridRenderer = ({ clientes, vista }) => {
-  const grid = vista === "grid";
+const GridRenderer = ({ clientes, vista, totalClientes }) => {
+  const esTabla = vista === "tabla";
+  const esLista = vista === "lista";
   return (
     <div>
-      {vista === "simple" && <SimpleVista clientes={clientes} />}
-      {!grid &&
-        vista !== "impresion" &&
-        vista !== "simple" && <ListaVista clientes={clientes} />}
+      {vista === "impresion" && <ImpresionVista clientes={clientes} totalClientes={totalClientes}/>}
+      {esLista && !esTabla && <ListaVista clientes={clientes}/>}
+      {!esLista && esTabla && <TablaVista />}
+      {!esLista && vista === "l-simple" && <ListaSimpleVista clientes={clientes}/>}
+      {!esTabla && vista === "t-simple" && <TablaSimpleVista/>}
     </div>
   );
 };
 
 GridRenderer.propTypes = {
   clientes: PropTypes.array.isRequired,
-  vista: PropTypes.string
+  vista: PropTypes.string,
+  totalClientes: PropTypes.number
 };
 
 export default GridRenderer;
+/* {vista === "l-simple" ? <ListaSimpleVista clientes={clientes} /> : <ListaVista clientes={clientes} />} */

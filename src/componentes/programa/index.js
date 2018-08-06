@@ -67,10 +67,10 @@ class Programa extends React.Component {
             textColor="primary"
             value={this.state.value}
             >
-            <Tab icon={<DescriptionIcon />} label="clientes" />
-            <Tab icon={<AppsIcon />} label="códigos" />
-            <Tab icon={<IconConfiguraciones />} label="config" />
-            <Tab component={Link} icon={<IconSalir />} label="salir" to={"/"}/>
+            <Tab icon={<DescriptionIcon />} />
+            <Tab icon={<AppsIcon />} />
+            <Tab icon={<IconConfiguraciones />} />
+            <Tab component={Link} icon={<IconSalir />} to={"/"}/>
           </Tabs>
         </AppBar>
         <div>
