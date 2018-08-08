@@ -2,15 +2,31 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import plantilla from "../../plantilla/index";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Parallax from "../../componentes/parallax";
+import Bot from "../../plantilla/bot";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { withStyles } from "@material-ui/core/styles";
+// import classNames from "classnames";
+import lightGreen from "@material-ui/core/colors/lightGreen";
+
+const styles = theme => ({
+  cssRoot: {
+    color: theme.palette.getContrastText(lightGreen[500]),
+    backgroundColor: lightGreen[500],
+    "&:hover": {
+      backgroundColor: lightGreen[700]
+    }
+  }
+});
 
 class Bienvenido extends Component {
   render() {
+    const { classes } = this.props;
     return (
       <Parallax filter={false} image={require("../../act/img/lander.jpg")} small={false} style={{color: "blue"}}>
+      <CssBaseline />
         <Helmet>
           <title>⚖</title>
         </Helmet>
@@ -19,22 +35,22 @@ class Bienvenido extends Component {
         </Typography>
         <Typography style={{textAlign: "justify", color: "#f8f8f8"}} variant="headline">
           Aplicación <em>multiplataforma</em> para el control y manejo de los
-          documentos <b>privados</b> que ingresan a nuestro estudio
-          jurídico; incluye los principales <b>códigos</b> vigentes en el
+          documentos <b>privados</b> de un estudio
+          jurídico; también se incluye los principales <b>códigos</b> vigentes en el
           Ecuador.
         </Typography>
         <Button
-          color="primary"
+          className={classes.cssRoot}
           component={Link}
           style={{ margin: "8px" }}
           to="/programa"
-          variant="contained"
           >
           Ingreso
         </Button>
-        <Button color="primary" style={{ margin: "8px" }} variant="contained">
+        <Button className={classes.cssRoot} style={{ margin: "8px" }}>
           Nosotros
         </Button>
+        <Bot/>
       </Parallax>
     );
   }
@@ -44,4 +60,4 @@ Bienvenido.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default plantilla(Bienvenido);
+export default withStyles(styles)(Bienvenido);
