@@ -1,74 +1,41 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import plantilla from "../../plantilla/index";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-
-// TODO: arreglar el border bottom del top se superpone al cuerpo del bienvenido.
-const styles = {
-  root: {
-    paddingTop: "100px",
-    textAlign: "center",
-    margin: "0 10px 40px 10px",
-    background: "cyan",
-    height: "100%",
-    position: "absolute"
-  },
-  bie: {
-    flex: "0 0 auto",
-    color: "#1976d2",
-    display: "flex",
-    textAlign: "justify",
-    minHeight: "80vh",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
-    margin: "0 10px 40px 10px"
-  }
-};
+import Parallax from "../../componentes/parallax";
 
 class Bienvenido extends Component {
   render() {
-    const { classes } = this.props;
     return (
-      <div className={classes.bie}>
+      <Parallax filter={false} image={require("../../act/img/lander.jpg")} small={false} style={{color: "blue"}}>
         <Helmet>
           <title>⚖</title>
         </Helmet>
-        <Grid container spacing={16}>
-          <Grid item xs={12}>
-            <Typography gutterBottom variant="display3">
-              CodexEC
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="headline"
-              >
-              Es una aplicación multiplataforma para el control y manejo de los documentos <b>privados</b> de los clientes de nuestro estudio juridico; además se proveen los principales códigos vigentes en el Ecuador.
-            </Typography>
-            <Button
-              color="primary"
-              component={Link}
-              style={{ margin: "8px" }}
-              to="/programa"
-              variant="contained"
-              >
-              Ingreso
-            </Button>
-            <Button
-              color="primary"
-              style={{ margin: "8px" }}
-              variant="contained"
-              >
-              Nosotros
-            </Button>
-          </Grid>
-        </Grid>
-      </div>
+        <Typography style={{color: "#f8f8f8"}} variant="display3">
+          CODEX
+        </Typography>
+        <Typography style={{textAlign: "justify", color: "#f8f8f8"}} variant="headline">
+          Aplicación <em>multiplataforma</em> para el control y manejo de los
+          documentos <b>privados</b> que ingresan a nuestro estudio
+          jurídico; incluye los principales <b>códigos</b> vigentes en el
+          Ecuador.
+        </Typography>
+        <Button
+          color="primary"
+          component={Link}
+          style={{ margin: "8px" }}
+          to="/programa"
+          variant="contained"
+          >
+          Ingreso
+        </Button>
+        <Button color="primary" style={{ margin: "8px" }} variant="contained">
+          Nosotros
+        </Button>
+      </Parallax>
     );
   }
 }
@@ -77,4 +44,4 @@ Bienvenido.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default plantilla(withStyles(styles)(Bienvenido));
+export default plantilla(Bienvenido);
