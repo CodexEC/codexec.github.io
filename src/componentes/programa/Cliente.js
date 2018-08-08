@@ -26,7 +26,7 @@ class Cliente extends Component {
       datosClientes: [],
       order: "asc",
       orderBy: "ree",
-      showLista: false,
+      showLista: true,
       showSearch: false,
       checked: [0],
       vista: "lista",

@@ -4,11 +4,14 @@ export class ClienteServicio {
   traerClientes(_this) {
     axios
       .get("seed/cat_clientes.json")
-      .then(res => res.data.cat_clientes)
+      .then(res => res.data)
       .then(data => {
         console.log("<< Datos Cargados >>");
         _this.setState({ datosClientes: data });
         return data;
       });
+  }
+  traerCodigos() {
+    return axios.get("seed/cat_codigos.json").then(res => res.data);
   }
 }
