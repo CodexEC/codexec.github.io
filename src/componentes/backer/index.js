@@ -46,16 +46,23 @@ class Backer extends Component {
   }
 
   runSlideShow() {
-    setInterval(this.autoSlideshow, 5000);
+    let intervalId = setInterval(this.autoSlideshow, 5000);
+    this.setState({
+      intervalId
+    });
   }
 
   autoSlideshow() {
     this.setState({
       currentSlide: (this.state.currentSlide + 1) % this.state.imagenes.length
     });
-    console.log(this.state.currentSlide);
+    console.log(this.state.currentSlide + "> index imagen actual");
   }
 
+  componentWillUnmount() {
+    console.log("> Reseteo el interval");
+    clearInterval(this.state.intervalId);
+  }
   render() {
     const { classes, imagenes, children } = this.props;
     const { efectos, currentSlide } = this.state;

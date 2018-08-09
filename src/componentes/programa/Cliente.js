@@ -40,6 +40,7 @@ class Cliente extends Component {
     this.handlearCambioVistaLista = this.handlearCambioVistaLista.bind(this);
     this.handlearCambioVistaTabla = this.handlearCambioVistaTabla.bind(this);
     this.handlearCambioVistaImpresion = this.handlearCambioVistaImpresion.bind(this);
+    this.handlearPDF = this.handlearPDF.bind(this);
     // @lodash
     // this.deBounced = debounce(this.handleSearchSubmit, 450)
     this.clienteservicio = new ClienteServicio();
@@ -119,6 +120,10 @@ class Cliente extends Component {
       checked: newChecked
     });
   }
+  // HACK: al  hacer click handlearPDF() generar un reporte sin estilos, limpio
+  handlearPDF() {
+    window.print(console.log("> Imprimir"));
+  }
 
   componentWillMount() {}
 
@@ -146,6 +151,7 @@ class Cliente extends Component {
                 handlearCambioVistaImpresion={this.handlearCambioVistaImpresion}
                 handlearCambioVistaLista={this.handlearCambioVistaLista}
                 handlearCambioVistaTabla={this.handlearCambioVistaTabla}
+                handlearPDF={this.handlearPDF}
                 handleNuevoCliente={this.handleNuevoCliente}
                 handleSearchToggle={this.handleSearchToggle}
                 handleToggle={this.handleToggle}

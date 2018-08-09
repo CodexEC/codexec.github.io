@@ -8,11 +8,6 @@ const parallaxStyle = {
   parallax: {
     height: "100vh",
     backgroundSize: "cover",
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "space-around",
-    padding: "0 1.5em",
     backgroundPosition: "center center",
     backgroundAttachment: "fixed"
   },
@@ -58,6 +53,7 @@ class Parallax extends React.Component {
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     });
   }
+  // DEBUG:parallax debe recibir la propiedad si habilita ono parallax
   render() {
     const { transform } = this.state;
     const { classes, filter, children, image, small, style } = this.props;

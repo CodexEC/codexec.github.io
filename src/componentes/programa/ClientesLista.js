@@ -76,15 +76,6 @@ const ClientesLista = props => {
               <DeleteIcon />
             </IconButton>
           </Tooltip>
-          <Button
-            className={classes.aireBoton}
-            color="primary"
-            disabled={true}
-            size="small"
-            variant="contained"
-            >
-            Ver Documentos
-          </Button>
           <Tooltip
             placement="bottom"
             title={props.vista === "lista" ? "Simple" : "Lista"}
@@ -122,6 +113,24 @@ const ClientesLista = props => {
               <PrintIcon />
             </IconButton>
           </Tooltip>
+          <Button
+          className={classes.aireBoton}
+          color="primary"
+          disabled={true}
+          size="small"
+          variant="contained"
+          >
+          Ver Documentos
+        </Button>
+          <Button
+          className={classes.aireBoton}
+          color="primary"
+          onClick={props.handlearPDF}
+          size="small"
+          variant="outlined"
+          >
+          Imprimir
+        </Button>
         </div>
         <div>
           {props.showSearch ? (
@@ -196,7 +205,8 @@ ClientesLista.propTypes = {
   handlearCambioVistaLista: PropTypes.func,
   handlearCambioVistaTabla: PropTypes.func,
   handlearCambioVistaImpresion: PropTypes.func,
-  totalClientes: PropTypes.number
+  totalClientes: PropTypes.number,
+  handlearPDF: PropTypes.func
 };
 
 export default withStyles(styles)(ClientesLista);

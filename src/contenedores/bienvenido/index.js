@@ -6,10 +6,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Parallax from "../../componentes/parallax";
 import Bot from "../../plantilla/bot";
+import Top from "../../plantilla/top";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { withStyles } from "@material-ui/core/styles";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 import logo from "../../act/img/logo.png";
+import lander from "../../act/img/lander.jpg";
 
 const styles = theme => ({
   cssRoot: {
@@ -24,7 +26,8 @@ const styles = theme => ({
     height: "80vh",
     flexDirection: "column",
     justifyContent: "space-around",
-    alignItems: "flex-end"
+    alignItems: "flex-end",
+    padding: "0 1.5em"
   }
 });
 
@@ -37,10 +40,10 @@ class Bienvenido extends Component {
           <title>⚖</title>
         </Helmet>
         <CssBaseline />
-
+        <Top />
         <Parallax
           filter={false}
-          image={require("../../act/img/lander.jpg")}
+          image={lander}
           small={false}
           style={{ color: "blue" }}
           >
