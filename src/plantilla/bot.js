@@ -18,7 +18,10 @@ const footerEstilos = theme => ({
   aire: {
     padding: "0 7px 0 7px",
     color:
-      theme.palette.type === "light" ? "#f8f8f8" : theme.palette.primary.dark
+      theme.palette.type === "light" ? "#f8f8f8" : theme.palette.primary.dark,
+    letterSpacing: "0.5px",
+    fontSize: "0.75rem",
+    fontFamily: "consolas"
   },
   link: {
     textDecoration: "none",
@@ -43,7 +46,7 @@ class Bot extends Component {
         </Typography>
         <Typography className={classes.aire}>
           <Link className={classes.link} to={"/privacidad"}>
-            Privacidad
+            Privacidad y Rastros
           </Link>
         </Typography>
       </footer>

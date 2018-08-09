@@ -13,7 +13,8 @@ const parallaxStyle = {
     alignItems: "center",
     justifyContent: "space-around",
     padding: "0 1.5em",
-    backgroundPosition: "center center"
+    backgroundPosition: "center center",
+    backgroundAttachment: "fixed"
   },
   filter: {
     "&:before": {

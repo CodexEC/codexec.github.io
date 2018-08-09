@@ -35,7 +35,7 @@ class Backer extends Component {
     super(props);
     this.state = {
       imagenes: props.imagenes,
-      efectos: ["fade", "right", "bottom"],
+      efectos: ["fade", "fade", "fade"],
       currentSlide: 0
     };
     this.runSlideShow = this.runSlideShow.bind(this);
@@ -46,7 +46,7 @@ class Backer extends Component {
   }
 
   runSlideShow() {
-    setInterval(this.autoSlideshow, 3500);
+    setInterval(this.autoSlideshow, 5000);
   }
 
   autoSlideshow() {
@@ -64,7 +64,7 @@ class Backer extends Component {
       return (
         <li
           className={`slide ${efectos[i]} ${
-            currentSlide === i ? "showing-" + efectos[i] : "no-pongas"
+            currentSlide === i ? "showing-" + efectos[i] : ""
           }`}
           key={i}
           style={{ backgroundImage: `url(${slide})` }}
@@ -73,13 +73,7 @@ class Backer extends Component {
     });
 
     return (
-      <div
-        style={{
-          position: "absolute",
-          height: "100%",
-          width: "100%"
-        }}
-        >
+      <div>
         <ul className={classes.parallax}>{slideShowSlides}</ul>
         {children}
       </div>
