@@ -26,7 +26,7 @@ function importar(Component) {
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Top titulo="" />
+        <Top titulo="CodexEC" />
         <Component {...props} />
         <Bot />
       </MuiThemeProvider>

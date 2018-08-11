@@ -1,9 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import plantilla from "../../plantilla/index";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Top from "../../plantilla/top";
+import Bot from "../../plantilla/bot";
+import Backer from "../../componentes/backer";
 import Contador from "../../componentes/contador";
 import Tiempo from "../../componentes/tiempo";
-import Backer from "../../componentes/backer";
 import Paper from "@material-ui/core/Paper";
 import A from "../../act/img/0.jpg";
 import B from "../../act/img/1.jpg";
@@ -15,8 +17,10 @@ const Index = () => {
   return (
     <div>
       <Helmet>
-        <title>Privacidad</title>
+        <title>Privacidad y Rastros</title>
       </Helmet>
+      <CssBaseline />
+      <Top titulo="Políticas de Privacidad"/>
       <Backer imagenes={[A, B, C]}>
         <Paper
           style={{
@@ -231,8 +235,9 @@ const Index = () => {
           </div>
         </Paper>
       </Backer>
+      <Bot/>
     </div>
   );
 };
 
-export default plantilla(Index);
+export default Index;

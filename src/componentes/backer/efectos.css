@@ -18,6 +18,8 @@
   z-index: 2;
   animation-duration: 1s;
   animation-name: slide-fade;
+  /* animation-iteration-count: infinite;
+  animation-direction: alternate; */
 }
 
 @keyframes slide-fade {

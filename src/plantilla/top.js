@@ -23,7 +23,7 @@ const estilos = {
 
 class Top extends Component {
   render() {
-    const classes = this.props.classes;
+    const { classes } = this.props;
 
     return (
       <AppBar color="primary" position="static">

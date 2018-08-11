@@ -140,7 +140,7 @@ class Cliente extends Component {
       return <Loader />;
     } else if (this.state.showLista) {
       return (
-        <Grid container spacing={16}>
+        <Grid container spacing={24}>
           <Grid item xs={12}>
             <Paper>
               <ClientesLista
@@ -166,7 +166,7 @@ class Cliente extends Component {
       );
     } else {
       return (
-        <Grid container spacing={16}>
+        <Grid container spacing={24}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <ClienteAñadir
