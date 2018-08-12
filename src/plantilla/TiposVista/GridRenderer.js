@@ -21,6 +21,10 @@ const GridRenderer = ({ clientes, vista, totalClientes }) => {
   );
 };
 
+GridRenderer.defaultProps = {
+  vista: "impresion"
+};
+
 GridRenderer.propTypes = {
   clientes: PropTypes.array.isRequired,
   vista: PropTypes.string,

@@ -16,6 +16,7 @@ import TablaSimpleIcono from "@material-ui/icons/TableChart";
 import TextField from "@material-ui/core/TextField";
 import Tooltip from "@material-ui/core/Tooltip";
 import Divider from "@material-ui/core/Divider";
+import { Link } from "react-router-dom";
 
 import GridRenderer from "../../plantilla/TiposVista/GridRenderer";
 
@@ -109,7 +110,7 @@ const ClientesLista = props => {
             </IconButton>
           </Tooltip>
           <Tooltip title="Vista Impresión">
-            <IconButton aria-label="Vista Impresión" color="primary" onClick={props.handlearCambioVistaImpresion}>
+            <IconButton aria-label="Vista Impresión" color="primary" component={Link} to={"/programa/i-simple"}>
               <PrintIcon />
             </IconButton>
           </Tooltip>
