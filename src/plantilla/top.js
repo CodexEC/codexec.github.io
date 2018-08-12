@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 
-import ImprimirIcono from "@material-ui/icons/Person";
+import MenuIcono from "@material-ui/icons/MoreVert";
 
 // TODO: bindiar los right iconos busqueda y vistas
 
@@ -23,10 +23,10 @@ const estilos = {
 
 class Top extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, color, position, style } = this.props;
 
     return (
-      <AppBar color="primary" position="static">
+      <AppBar color={color} position={position} style={style}>
         <Toolbar className={classes.bie}>
           <div>
             <Typography color="inherit" variant="title">
@@ -36,7 +36,7 @@ class Top extends Component {
           <div>
             <Tooltip title="Ingreso">
               <IconButton aria-label="Ingreso" color="inherit">
-                <ImprimirIcono />
+                <MenuIcono />
               </IconButton>
             </Tooltip>
           </div>
@@ -46,12 +46,17 @@ class Top extends Component {
   }
 }
 Top.defaultProps = {
-  titulo: "Bienvenido"
+  titulo: "Bienvenido",
+  color: "primary",
+  position: "static"
 };
 
 Top.propTypes = {
   classes: PropTypes.object.isRequired,
-  titulo: PropTypes.string
+  titulo: PropTypes.string,
+  color: PropTypes.string,
+  position: PropTypes.string,
+  style: PropTypes.object
 };
 
 export default withStyles(estilos)(Top);

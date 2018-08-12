@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Parallax from "../../componentes/parallax";
 import Bot from "../../plantilla/bot";
@@ -12,6 +11,10 @@ import { withStyles } from "@material-ui/core/styles";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 import logo from "../../act/img/logo.png";
 import lander from "../../act/img/lander.jpg";
+import SearchIcon from "@material-ui/icons/Https";
+import MasIcon from "@material-ui/icons/Sms";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const styles = theme => ({
   cssRoot: {
@@ -19,11 +22,12 @@ const styles = theme => ({
     backgroundColor: lightGreen[500],
     "&:hover": {
       backgroundColor: lightGreen[700]
-    }
+    },
+    padding: "25px"
   },
   main: {
     display: "flex",
-    height: "80vh",
+    height: "100vh",
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "flex-end",
@@ -40,7 +44,7 @@ class Bienvenido extends Component {
           <title>⚖</title>
         </Helmet>
         <CssBaseline />
-        <Top />
+        <Top position="fixed" style={{background: "black"}}/>
         <Parallax
           filter={false}
           image={lander}
@@ -56,29 +60,45 @@ class Bienvenido extends Component {
               }}
               >
               <img alt="codexec" src={logo} />
-              <Typography style={{letterSpacing: "2px"}} variant="display3">CODEXEC</Typography>
-            </div>
-            <div>
-              <Typography
-                style={{ textAlign: "justify", color: "#f8f8f8" }}
-                variant="headline"
-                >
-                Aplicación <em>multiplataforma</em> para el control y manejo de
-                los documentos <b>privados</b> de un estudio jurídico; también
-                se incluye los principales <b>códigos</b> vigentes en el
-                Ecuador.
+              <Typography style={{ letterSpacing: "2px" }} variant="display3">
+                CODEXEC
               </Typography>
-              <Button
-                className={classes.cssRoot}
-                component={Link}
-                style={{ margin: "8px" }}
-                to="/programa"
-                >
-                Prueba
-              </Button>
-              <Button className={classes.cssRoot} style={{ margin: "8px" }}>
-                Saber Más
-              </Button>
+            </div>
+            <Typography
+              style={{ textAlign: "justify", color: "#f8f8f8" }}
+              variant="headline"
+              >
+              Aplicación <em>multiplataforma</em> para el control y manejo de
+              los documentos <b>privados</b> de un estudio jurídico; también se
+              incluye los principales <b>códigos</b> vigentes en el Ecuador.
+            </Typography>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-evenly"
+              }}
+              >
+              <Tooltip placement="left" title="Ingreso">
+                <IconButton
+                  aria-label="Ingreso"
+                  component={Link}
+                  style={{ margin: "8px", color: "#000" }}
+                  to="/programa"
+                  >
+                  <SearchIcon style={{ fontSize: "36px" }} />
+                </IconButton>
+              </Tooltip>
+              <Tooltip placement="right" title="Saber Más...">
+                <IconButton
+                  aria-label="Saber Más..."
+                  component={Link}
+                  style={{ margin: "8px", color: "#000" }}
+                  to="/"
+                  >
+                  <MasIcon style={{ fontSize: "36px" }} />
+                </IconButton>
+              </Tooltip>
             </div>
           </div>
         </Parallax>
