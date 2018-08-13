@@ -1,0 +1,100 @@
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import withStyles from "@material-ui/core/styles/withStyles";
+import "./backerimg.css";
+
+const parallaxStyle = {
+  parallax: {
+    position: "absolute",
+    height: "100vh",
+    width: "100%",
+    zIndex: -1
+  }
+};
+
+class Backimg extends Component {
+  constructor(props) {
+    super(props);
+    var windowScrollTop = window.pageYOffset / 3;
+    this.state = {
+      imagenes: props.imagenes,
+      efectos: ["fade", "left", "right"],
+      currentSlide: 0,
+      transform: "translate3d(0," + windowScrollTop + "px,0)"
+    };
+    this.runSlideShow = this.runSlideShow.bind(this);
+    this.autoSlideshow = this.autoSlideshow.bind(this);
+    this.resetTransform = this.resetTransform.bind(this);
+  }
+  componentDidMount() {
+    this.runSlideShow();
+    this.resetTransform();
+    window.addEventListener("scroll", this.resetTransform);
+  }
+
+  runSlideShow() {
+    let intervalId = setInterval(this.autoSlideshow, 2000);
+    this.setState({
+      intervalId
+    });
+  }
+
+  autoSlideshow() {
+    this.setState({
+      currentSlide: (this.state.currentSlide + 1) % this.state.imagenes.length
+    });
+    console.log(this.state.currentSlide + "> index imagen actual");
+  }
+
+  componentWillUnmount() {
+    console.log("> Reseteo el interval");
+    clearInterval(this.state.intervalId);
+    window.removeEventListener("scroll", this.resetTransform);
+  }
+
+  resetTransform() {
+    var windowScrollTop = window.pageYOffset / 3;
+    this.setState({
+      transform: "translate3d(0," + windowScrollTop + "px,0)"
+    });
+  }
+
+  render() {
+    const { classes, titulo, children, imagenes } = this.props;
+    const { efectos, currentSlide, transform } = this.state;
+
+    const listaImagenes = imagenes.map((imagen, i) => {
+      return (
+        <div
+          className={`slide ${efectos[i]} ${
+            currentSlide === i ? "showing-" + efectos[i] : ""
+          }`}
+          key={i}
+          style={{
+            backgroundImage: `url(${imagen})`,
+            transform
+          }}
+        />
+      );
+    });
+
+    return (
+      <div>
+        <div className={classes.parallax}>{listaImagenes}</div>
+        <div style={{ position: "fixed", top: "4.5em", left: "80%" }}>
+          {titulo}
+        </div>
+        <div>{children}</div>
+      </div>
+    );
+  }
+}
+
+Backimg.propTypes = {
+  classes: PropTypes.object.isRequired,
+  titulo: PropTypes.string,
+  children: PropTypes.node,
+  imagenes: PropTypes.array
+};
+
+export default withStyles(parallaxStyle)(Backimg);

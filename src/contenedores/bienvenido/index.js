@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import Parallax from "../../componentes/parallax";
+import Backer from "../../componentes/backimg";
 import Bot from "../../plantilla/bot";
 import Top from "../../plantilla/top";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -45,63 +45,58 @@ class Bienvenido extends Component {
         </Helmet>
         <CssBaseline />
         <Top position="fixed" style={{background: "black"}}/>
-        <Parallax
-          filter={false}
-          image={lander}
-          small={false}
-          style={{ color: "blue" }}
+        <Backer imagenes={[lander]}>
+        <div className={classes.main}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column"
+          }}
           >
-          <div className={classes.main}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column"
-              }}
+          <img alt="codexec" src={logo} />
+          <Typography style={{ letterSpacing: "2px" }} variant="display3">
+            CODEXEC
+          </Typography>
+        </div>
+        <Typography
+          style={{ textAlign: "justify", color: "#f8f8f8" }}
+          variant="headline"
+          >
+          Aplicación <em>multiplataforma</em> para el control y manejo de
+          los documentos <b>privados</b> de un estudio jurídico; también se
+          incluye los principales <b>códigos</b> vigentes en el Ecuador.
+        </Typography>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-evenly"
+          }}
+          >
+          <Tooltip placement="left" title="Ingreso">
+            <IconButton
+              aria-label="Ingreso"
+              component={Link}
+              style={{ margin: "8px", color: "#000" }}
+              to="/programa"
               >
-              <img alt="codexec" src={logo} />
-              <Typography style={{ letterSpacing: "2px" }} variant="display3">
-                CODEXEC
-              </Typography>
-            </div>
-            <Typography
-              style={{ textAlign: "justify", color: "#f8f8f8" }}
-              variant="headline"
+              <SearchIcon style={{ fontSize: "36px" }} />
+            </IconButton>
+          </Tooltip>
+          <Tooltip placement="right" title="Saber Más...">
+            <IconButton
+              aria-label="Saber Más..."
+              component={Link}
+              style={{ margin: "8px", color: "#000" }}
+              to="/"
               >
-              Aplicación <em>multiplataforma</em> para el control y manejo de
-              los documentos <b>privados</b> de un estudio jurídico; también se
-              incluye los principales <b>códigos</b> vigentes en el Ecuador.
-            </Typography>
-            <div
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-evenly"
-              }}
-              >
-              <Tooltip placement="left" title="Ingreso">
-                <IconButton
-                  aria-label="Ingreso"
-                  component={Link}
-                  style={{ margin: "8px", color: "#000" }}
-                  to="/programa"
-                  >
-                  <SearchIcon style={{ fontSize: "36px" }} />
-                </IconButton>
-              </Tooltip>
-              <Tooltip placement="right" title="Saber Más...">
-                <IconButton
-                  aria-label="Saber Más..."
-                  component={Link}
-                  style={{ margin: "8px", color: "#000" }}
-                  to="/"
-                  >
-                  <MasIcon style={{ fontSize: "36px" }} />
-                </IconButton>
-              </Tooltip>
-            </div>
-          </div>
-        </Parallax>
+              <MasIcon style={{ fontSize: "36px" }} />
+            </IconButton>
+          </Tooltip>
+        </div>
+      </div>
+        </Backer>
         <Bot />
       </div>
     );
