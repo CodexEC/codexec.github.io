@@ -10,7 +10,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { withStyles } from "@material-ui/core/styles";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 import logo from "../../act/img/logo.png";
-import lander from "../../act/img/lander.jpg";
+import lander1 from "../../act/img/lander1.jpg";
+import lander2 from "../../act/img/lander2.jpg";
+import lander3 from "../../act/img/lander3.jpg";
 import SearchIcon from "@material-ui/icons/Https";
 import MasIcon from "@material-ui/icons/Sms";
 import IconButton from "@material-ui/core/IconButton";
@@ -45,7 +47,7 @@ class Bienvenido extends Component {
         </Helmet>
         <CssBaseline />
         <Top position="fixed" style={{background: "black"}}/>
-        <Backer imagenes={[lander]}>
+        <Backer imagenes={[lander1, lander2, lander3]}>
         <div className={classes.main}>
         <div
           style={{

@@ -16,7 +16,7 @@
   .showing-fade {
     opacity: 1;
     z-index: 2;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-name: slide-fade;
     /* animation-iteration-count: infinite;
     animation-direction: alternate; */
@@ -98,7 +98,7 @@
   
   .showing-bounce-left {
     opacity: 1;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-name: slide-bounce-left;
   }
   
@@ -107,7 +107,7 @@
       left: 100%;
     }
     50% {
-      left: -20%;
+      left: -10%;
     }
     100% {
       left: 0;
@@ -125,7 +125,7 @@
       left: -100%;
     }
     50% {
-      left: 20%;
+      left: -10%;
     }
     100% {
       left: 0;

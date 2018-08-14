@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
@@ -26,7 +25,7 @@ function TerminosPagina() {
             textAlign: "justify",
             backgroundColor: "rgba(175, 174, 162, 0.89)"
           }}
-          >
+        >
           <div>{"FIXME: insertar terminos"}</div>
         </Paper>
       </Backer>
@@ -34,9 +33,5 @@ function TerminosPagina() {
     </div>
   );
 }
-
-TerminosPagina.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default TerminosPagina;

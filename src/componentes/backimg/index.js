@@ -18,7 +18,7 @@ class Backimg extends Component {
     var windowScrollTop = window.pageYOffset / 3;
     this.state = {
       imagenes: props.imagenes,
-      efectos: ["fade", "left", "right"],
+      efectos: ["fade", "bounce-left", "top"],
       currentSlide: 0,
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     };
@@ -33,7 +33,7 @@ class Backimg extends Component {
   }
 
   runSlideShow() {
-    let intervalId = setInterval(this.autoSlideshow, 2000);
+    let intervalId = setInterval(this.autoSlideshow, 5000);
     this.setState({
       intervalId
     });
