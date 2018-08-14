@@ -9,7 +9,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b master -d build",
+    "server": "nodemon --inspect --exec babel-node servidor/sm",
+    "serm": "node --inspect servidor/sm"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -58,6 +60,7 @@
     "typeface-roboto": "^0.0.54"
   },
   "optionalDependencies": {
+    "babel-cli": "^6.26.0",
     "gh-pages": "^1.2.0"
   }
 }
