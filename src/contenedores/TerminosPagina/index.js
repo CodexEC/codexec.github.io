@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Top from "../../plantilla/top";
 import Bot from "../../plantilla/bot";
@@ -15,7 +14,6 @@ function TerminosPagina() {
       <Helmet>
         <title>Términos de uso</title>
       </Helmet>
-      <CssBaseline />
       <Top style={{ background: "transparent" }} titulo="Términos de Uso" />
       <Backer imagenes={[A, B, C]}>
         <Paper
@@ -25,7 +23,7 @@ function TerminosPagina() {
             textAlign: "justify",
             backgroundColor: "rgba(175, 174, 162, 0.89)"
           }}
-        >
+          >
           <div>{"FIXME: insertar terminos"}</div>
         </Paper>
       </Backer>

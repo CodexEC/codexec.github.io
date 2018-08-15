@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 // import SwipeableViews from "react-swipeable-views";
 
 import { Link } from "react-router-dom";
-import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
@@ -58,7 +58,7 @@ class Programa extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar color="default" position="static">
+        <Toolbar className="no-print" color="default" position="static">
           <Tabs
             centered
             indicatorColor="primary"
@@ -72,7 +72,7 @@ class Programa extends React.Component {
             <Tab icon={<IconConfiguraciones />} />
             <Tab component={Link} icon={<IconSalir />} to={"/"}/>
           </Tabs>
-        </AppBar>
+        </Toolbar>
         <div>
           {this.state.value === 0 && (
             <TabContainer>

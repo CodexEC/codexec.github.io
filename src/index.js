@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // import Index from "./contenedores/index";
+import "./codexec.css";
 import App from "./App.codexec";
 
 console.log("====================================");

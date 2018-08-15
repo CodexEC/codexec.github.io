@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Top from "../../plantilla/top";
 import Bot from "../../plantilla/bot";
@@ -15,7 +14,6 @@ const Noencontrado = () => {
       <Helmet>
         <title>No Encontrado</title>
       </Helmet>
-      <CssBaseline />
       <Top style={{background: "transparent"}} titulo="La página que busca no existe"/>
       <Backimg imagenes={[B, C, A]}>
         <Paper
