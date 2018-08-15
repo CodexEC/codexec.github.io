@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-// import "./backerimg.css";
 
 const parallaxStyle = {
   parallax: {
@@ -43,11 +42,9 @@ class Backimg extends Component {
     this.setState({
       currentSlide: (this.state.currentSlide + 1) % this.state.imagenes.length
     });
-    console.log(this.state.currentSlide + "> index imagen actual");
   }
 
   componentWillUnmount() {
-    console.log("> Reseteo el interval");
     clearInterval(this.state.intervalId);
     window.removeEventListener("scroll", this.resetTransform);
   }
