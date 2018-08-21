@@ -4,8 +4,7 @@ import { shallow } from "enzyme";
 
 describe("<Backerimg />", () => {
   it("renders without crashing", () => {
-    const classes = "titulo";
-    shallow(<Backerimg titulo={classes} />);
+    shallow(<Backerimg />);
   });
   console.log("> Backerimg 100%");
 });

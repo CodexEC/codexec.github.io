@@ -57,7 +57,7 @@ class Backimg extends Component {
   }
 
   render() {
-    const { classes, titulo, children, imagenes } = this.props;
+    const { classes, children, imagenes } = this.props;
     const { efectos, currentSlide, transform } = this.state;
 
     const listaImagenes = imagenes.map((imagen, i) => {
@@ -78,10 +78,7 @@ class Backimg extends Component {
     return (
       <div>
         <div className={classes.parallax}>{listaImagenes}</div>
-        <div style={{ position: "fixed", top: "4.5em", left: "80%" }}>
-          {titulo}
-        </div>
-        <div>{children}</div>
+        {children}
       </div>
     );
   }
@@ -89,7 +86,6 @@ class Backimg extends Component {
 
 Backimg.propTypes = {
   classes: PropTypes.object.isRequired,
-  titulo: PropTypes.string,
   children: PropTypes.node,
   imagenes: PropTypes.array
 };

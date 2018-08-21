@@ -4,6 +4,7 @@ import blueGrey from "@material-ui/core/colors/blueGrey";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 import Top from "./top";
 import Bot from "./bot";
+import Reset from "@material-ui/core/CssBaseline";
 
 const theme = createMuiTheme({
   palette: {
@@ -24,6 +25,7 @@ function importar(Component) {
   function conPlantilla(props) {
     return (
       <MuiThemeProvider theme={theme}>
+        <Reset/>
         <Top titulo="CodexEC" />
         <Component {...props} />
         <Bot />

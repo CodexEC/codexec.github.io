@@ -22,7 +22,7 @@ const styles = {
     height: "100vh",
     flexDirection: "column",
     justifyContent: "space-around",
-    alignItems: "flex-end",
+    alignItems: "center",
     padding: "0 1.5em"
   }
 };
@@ -35,7 +35,7 @@ class Bienvenido extends Component {
         <Helmet>
           <title>⚖</title>
         </Helmet>
-        <Top position="fixed" style={{ background: "#000" }} />
+        <Top position="fixed" style={{ background: "rgba(0, 0, 0, 0.63)" }} />
         <Backer imagenes={[lander1, lander2, lander3]}>
           <div className={classes.main}>
             <div
@@ -46,7 +46,7 @@ class Bienvenido extends Component {
               }}
               >
               <img alt="codexec" src={logo} />
-              <Typography style={{ letterSpacing: "2px" }} variant="display3">
+              <Typography style={{ letterSpacing: "2px", color: "#000" }} variant="display3">
                 CODEXEC
               </Typography>
             </div>
@@ -61,7 +61,7 @@ class Bienvenido extends Component {
                 <IconButton
                   aria-label="Ingreso"
                   component={Link}
-                  style={{ margin: "8px", color: "#000" }}
+                  style={{ margin: "8px", color: "#f8f8f8"}}
                   to="/programa"
                   >
                   <SearchIcon style={{ fontSize: "36px" }} />
@@ -71,7 +71,7 @@ class Bienvenido extends Component {
                 <IconButton
                   aria-label="Saber Más..."
                   component={Link}
-                  style={{ margin: "8px", color: "#000" }}
+                  style={{ margin: "8px", color: "#f8f8f8" }}
                   to="/"
                   >
                   <MasIcon style={{ fontSize: "36px" }} />
