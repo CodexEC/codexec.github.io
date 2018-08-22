@@ -32,4 +32,3 @@ GridRenderer.propTypes = {
 };
 
 export default GridRenderer;
-/* {vista === "l-simple" ? <ListaSimpleVista clientes={clientes} /> : <ListaVista clientes={clientes} />} */

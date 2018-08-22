@@ -7,8 +7,6 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-// import EditIcon from "@material-ui/icons/Edit";
-// import DeleteIcon from "@material-ui/icons/Delete";
 import IconoAñadir from "@material-ui/icons/Add";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -26,9 +24,8 @@ const styles = theme => ({
 });
 
 const ClienteAñadir = props => {
-  // const { classes } = this.props;
-  const classes = props.classes;
-  console.log(props);
+  const { classes } = this.props;
+  console.log(">log the props: " + props);
   return (
     <div>
       <div className={classes.bie}>
