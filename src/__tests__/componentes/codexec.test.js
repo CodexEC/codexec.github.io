@@ -6,7 +6,7 @@ describe("Componente más alto en CODEXEC", () => {
   let app = shallow(<App />);
 
   it("Should have a div with className of app", () => {
-    expect(app.find(".codexec")).toHaveLength(1);
+    expect(app.find(".codexec")).to.
   });
 
 });
