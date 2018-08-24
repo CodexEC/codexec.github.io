@@ -24,7 +24,8 @@ const styles = theme => ({
 });
 
 const ClienteAñadir = props => {
-  const { classes } = this.props;
+  // const { classes } = this.props;
+  const classes = props.classes;
   console.log(">log the props: " + props);
   return (
     <div>

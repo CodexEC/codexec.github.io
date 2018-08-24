@@ -8,5 +8,6 @@ describe("Componente más alto en CODEXEC", () => {
   it("Should have a div with className of app", () => {
     expect(app.find(".codexec")).to.
   });
-
+  console.log("asd");
 });
+ 
