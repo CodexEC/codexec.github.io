@@ -1,6 +1,6 @@
 {
   "short_name": "⚖",
-  "name": "Son leyes las normas generalmente obligatorias de interés común.",
+  "name": "CodexEC",
   "icons": [
     {
       "src": "favicon.ico",
@@ -25,6 +25,6 @@
   ],
   "start_url": "./",
   "display": "standalone",
-  "theme_color": "#c23d40",
-  "background_color": "#31263e"
+  "theme_color": "#009688",
+  "background_color": "#5fba7d"
 }
