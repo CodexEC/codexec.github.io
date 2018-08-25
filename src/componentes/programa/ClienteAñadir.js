@@ -7,7 +7,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import IconoAñadir from "@material-ui/icons/Add";
+import IconoCliente from "@material-ui/icons/Person";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
@@ -24,9 +24,8 @@ const styles = theme => ({
 });
 
 const ClienteAñadir = props => {
-  // const { classes } = this.props;
-  const classes = props.classes;
-  console.log(">log the props: " + props);
+  const { classes } = props;
+  console.log(props);
   return (
     <div>
       <div className={classes.bie}>
@@ -36,7 +35,7 @@ const ClienteAñadir = props => {
           color="primary"
           onClick={props.handleNuevoCliente}
           >
-          <IconoAñadir />
+          <IconoCliente />
         </IconButton>
         <Typography className={classes.aireControl} variant="headline">
           {"Nuevo"}

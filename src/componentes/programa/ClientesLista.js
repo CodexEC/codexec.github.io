@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import NewIcon from "@material-ui/icons/Person";
+import IconoAñadirCliente from "@material-ui/icons/PersonAdd";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
@@ -41,7 +41,7 @@ const styles = theme => ({
 });
 
 const ClientesLista = props => {
-  const classes = props.classes;
+  const { classes } = props;
   console.log(props);
   return (
     <div>
@@ -54,7 +54,7 @@ const ClientesLista = props => {
               color="primary"
               onClick={props.handleNuevoCliente}
               >
-              <NewIcon />
+              <IconoAñadirCliente />
             </IconButton>
           </Tooltip>
           <Tooltip placement="bottom" title="Editar">
