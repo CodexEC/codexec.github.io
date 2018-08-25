@@ -8,9 +8,9 @@ import Bot from "../../plantilla/bot";
 import Top from "../../plantilla/top";
 import { withStyles } from "@material-ui/core/styles";
 import logo from "../../act/img/logo.png";
-import lander1 from "../../act/img/lander1.jpg";
-import lander2 from "../../act/img/lander2.jpg";
-import lander3 from "../../act/img/lander3.jpg";
+import lander1 from "../../act/img/backer100.jpg";
+import lander2 from "../../act/img/backer101.jpg";
+import lander3 from "../../act/img/backer104.jpg";
 import SearchIcon from "@material-ui/icons/Https";
 import MasIcon from "@material-ui/icons/Sms";
 import IconButton from "@material-ui/core/IconButton";
@@ -46,7 +46,15 @@ class Bienvenido extends Component {
               }}
               >
               <img alt="codexec" src={logo} />
-              <Typography style={{ letterSpacing: "2px", color: "#000" }} variant="display3">
+              <Typography
+                style={{
+                  fontFamily: "VT323",
+                  fontSize: "6em",
+                  letterSpacing: "2px",
+                  color: "#f8f8f8"
+                }}
+                variant="display3"
+                >
                 CODEXEC
               </Typography>
             </div>
@@ -61,7 +69,7 @@ class Bienvenido extends Component {
                 <IconButton
                   aria-label="Ingreso"
                   component={Link}
-                  style={{ margin: "8px", color: "#f8f8f8"}}
+                  style={{ margin: "8px", color: "#f8f8f8" }}
                   to="/programa"
                   >
                   <SearchIcon style={{ fontSize: "36px" }} />

@@ -11,7 +11,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #000;
+  background-color: rgba(12, 1, 1, 0.938);
 }
 
 /* FIXME: chequear estilos en la impresion */

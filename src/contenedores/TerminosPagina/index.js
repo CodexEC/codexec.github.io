@@ -4,9 +4,9 @@ import Paper from "@material-ui/core/Paper";
 import Top from "../../plantilla/top";
 import Bot from "../../plantilla/bot";
 import Backer from "../../componentes/backimg";
-import A from "../../act/img/0.jpg";
-import B from "../../act/img/1.jpg";
-import C from "../../act/img/2.jpg";
+import lander1 from "../../act/img/backer100.jpg";
+import lander2 from "../../act/img/backer101.jpg";
+import lander3 from "../../act/img/backer104.jpg";
 
 function TerminosPagina() {
   return (
@@ -15,7 +15,7 @@ function TerminosPagina() {
         <title>Términos de uso</title>
       </Helmet>
       <Top style={{ background: "transparent" }} titulo="Términos de Uso" />
-      <Backer imagenes={[A, B, C]}>
+      <Backer imagenes={[lander2, lander3, lander1]}>
         <Paper
           style={{
             margin: "15px 40px 40px",

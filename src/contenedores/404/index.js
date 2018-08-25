@@ -4,9 +4,9 @@ import Paper from "@material-ui/core/Paper";
 import Top from "../../plantilla/top";
 import Bot from "../../plantilla/bot";
 import Backimg from "../../componentes/backimg";
-import A from "../../act/img/0.jpg";
-import B from "../../act/img/1.jpg";
-import C from "../../act/img/2.jpg";
+import lander1 from "../../act/img/backer100.jpg";
+import lander2 from "../../act/img/backer101.jpg";
+import lander3 from "../../act/img/backer104.jpg";
 
 const Noencontrado = () => {
   return (
@@ -15,7 +15,7 @@ const Noencontrado = () => {
         <title>No Encontrado</title>
       </Helmet>
       <Top style={{background: "transparent"}} titulo="La página que busca no existe"/>
-      <Backimg imagenes={[B, C, A]}>
+      <Backimg imagenes={[lander1, lander3, lander2]}>
         <Paper
           style={{
             margin: "15px 40px 40px",
