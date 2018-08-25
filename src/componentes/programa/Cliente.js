@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-
+import Divider from "@material-ui/core/Divider";
 import { ClienteServicio } from "../../servicio/ClienteServicio";
 import Loader from "../../plantilla/loader";
 import ClientesLista from "./ClientesLista";
-import ClienteAñadir from "./ClienteAñadir";
+import ClienteNuevo from "./ClienteNuevo";
+import ClienteTop from "./ClienteTop";
 
 const styles = theme => ({
   root: {
@@ -26,27 +27,29 @@ class Cliente extends Component {
       datosClientes: [],
       order: "asc",
       orderBy: "ree",
-      showLista: true,
+      showLista: false,
       showSearch: false,
       checked: [0],
       vista: "lista",
       totalClientes: 0
     };
-    this.handleOnAddCliente = this.handleOnAddCliente.bind(this);
-    this.handleNuevoCliente = this.handleNuevoCliente.bind(this);
+    this.handleAñadirCliente = this.handleAñadirCliente.bind(this);
+    this.handleMostrarLista = this.handleMostrarLista.bind(this);
     this.handleAnyInputChange = this.handleAnyInputChange.bind(this);
     this.handleSearchToggle = this.handleSearchToggle.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handlearCambioVistaLista = this.handlearCambioVistaLista.bind(this);
     this.handlearCambioVistaTabla = this.handlearCambioVistaTabla.bind(this);
-    this.handlearCambioVistaImpresion = this.handlearCambioVistaImpresion.bind(this);
+    this.handlearCambioVistaImpresion = this.handlearCambioVistaImpresion.bind(
+      this
+    );
     this.handlearPDF = this.handlearPDF.bind(this);
     // @lodash
     // this.deBounced = debounce(this.handleSearchSubmit, 450)
     this.clienteservicio = new ClienteServicio();
   }
 
-  handleOnAddCliente(e) {
+  handleAñadirCliente(e) {
     e.preventDefault();
     let form = e.target,
       cliente = {
@@ -63,7 +66,7 @@ class Cliente extends Component {
     });
     form.reset();
   }
-  handleNuevoCliente() {
+  handleMostrarLista() {
     this.setState({
       showLista: !this.state.showLista
     });
@@ -142,7 +145,12 @@ class Cliente extends Component {
       return (
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <Paper>
+            <Paper className={classes.paper}>
+              <ClienteTop
+                handleMostrarLista={this.handleMostrarLista}
+                tipo="topLista"
+              />
+              <Divider />
               <ClientesLista
                 checked={this.state.checked}
                 clientes={this.state.datosClientes}
@@ -152,7 +160,6 @@ class Cliente extends Component {
                 handlearCambioVistaLista={this.handlearCambioVistaLista}
                 handlearCambioVistaTabla={this.handlearCambioVistaTabla}
                 handlearPDF={this.handlearPDF}
-                handleNuevoCliente={this.handleNuevoCliente}
                 handleSearchToggle={this.handleSearchToggle}
                 handleToggle={this.handleToggle}
                 ordenarPor={this.state.orderBy}
@@ -169,10 +176,12 @@ class Cliente extends Component {
         <Grid container spacing={24}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <ClienteAñadir
-                handleNuevoCliente={this.handleNuevoCliente}
-                onAddCliente={this.handleOnAddCliente}
+              <ClienteTop
+                handleMostrarLista={this.handleMostrarLista}
+                tipo="topAñadir"
               />
+              <Divider />
+              <ClienteNuevo handleAñadirCliente={this.handleAñadirCliente} />
             </Paper>
           </Grid>
         </Grid>
