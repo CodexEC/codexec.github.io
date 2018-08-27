@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-// import SwipeableViews from "react-swipeable-views";
-
+import SwipeableViews from "react-swipeable-views";
 import { Link } from "react-router-dom";
 import Toolbar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
@@ -34,11 +33,11 @@ TabContainer.propTypes = {
   dir: PropTypes.string
 };
 
-const styles = {
+const styles = theme => ({
   root: {
-    flexGrow: 1
+    backgroundColor: theme.palette.background.paper
   }
-};
+});
 
 class Programa extends React.Component {
   constructor(props) {
@@ -46,6 +45,7 @@ class Programa extends React.Component {
     this.state = { value: 0 };
     // console.log(this.state.value + " ESTADD");
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeIndex = this.handleChangeIndex.bind(this);
   }
 
   handleChange(event, value) {
@@ -53,55 +53,57 @@ class Programa extends React.Component {
     // console.log(this.state.value + "handle");
   }
 
+  handleChangeIndex(index) {
+    this.setState({ value: index });
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, theme } = this.props;
 
     return (
       <div className={classes.root}>
         <Toolbar className="no-print" color="default" position="static">
           <Tabs
             centered
+            fullWidth
             indicatorColor="primary"
             onChange={this.handleChange}
-            scrollButtons="auto"
             textColor="primary"
             value={this.state.value}
             >
             <Tab icon={<DescriptionIcon />} />
             <Tab icon={<AppsIcon />} />
             <Tab icon={<IconConfiguraciones />} />
-            <Tab component={Link} icon={<IconSalir />} to={"/"}/>
+            <Tab component={Link} icon={<IconSalir />} to={"/"} />
           </Tabs>
         </Toolbar>
-        <div>
-          {this.state.value === 0 && (
-            <TabContainer>
-              <Cliente />
-            </TabContainer>
-          )}
-          {this.state.value === 1 && (
-            <TabContainer>
-              <Grid container spacing={24}>
-                <Grid item xs={12}>
-                  <Paper className={classes.paper}>
-                    <h1>Códigos</h1>
-                    <Typography>
-                      remite a ella. Art. 1.- La ley es una declaración de la
-                      voluntad soberana que, manifestada en la forma prescrita
-                      por la Constitución, manda, prohíbe o permite. Son leyes
-                      las normas generalmente obligator
-                    </Typography>
-                  </Paper>
-                </Grid>
+        <SwipeableViews
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+          index={this.state.value}
+          onChangeIndex={this.handleChangeIndex}
+          >
+          <TabContainer dir={theme.direction}>
+            <Grid container spacing={24}>
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  <h1>Códigos</h1>
+                  <Typography>
+                    remite a ella. Art. 1.- La ley es una declaración de la
+                    voluntad soberana que, manifestada en la forma prescrita por
+                    la Constitución, manda, prohíbe o permite. Son leyes las
+                    normas generalmente obligator
+                  </Typography>
+                </Paper>
               </Grid>
-            </TabContainer>
-          )}
-          {this.state.value === 2 && (
-            <TabContainer>
-              <Configuraciones tema="light" />
-            </TabContainer>
-          )}
-        </div>
+            </Grid>
+          </TabContainer>
+          <TabContainer dir={theme.direction}>
+            <Cliente />
+          </TabContainer>
+          <TabContainer dir={theme.direction}>
+            <Configuraciones tema="light" />
+          </TabContainer>
+        </SwipeableViews>
       </div>
     );
   }
@@ -109,8 +111,7 @@ class Programa extends React.Component {
 
 Programa.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
-  value: PropTypes.number
+  theme: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(Programa);
