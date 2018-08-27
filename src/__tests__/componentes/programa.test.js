@@ -11,5 +11,4 @@ describe("CodexEC", () => {
       </Router>
     );
   });
-  console.log("CODEX > 100%");
 });

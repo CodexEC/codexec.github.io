@@ -3,8 +3,7 @@ import React from "react";
 import { render } from "enzyme";
 
 describe("Plantilla", () => {
-  it("renders without crashing", () => {
+  it("sin errores", () => {
     render(<Plantilla />);
   });
-  console.log("Plantilla > 100%");
 });

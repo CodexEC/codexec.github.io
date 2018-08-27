@@ -2,12 +2,9 @@ import React from "react";
 import { shallow } from "enzyme";
 import App from "../../App.codexec";
 
-describe("Componente más alto en CODEXEC", () => {
+describe("Rutas componente más alto en CODEXEC", () => {
   let app = shallow(<App />);
-
-  it("Should have a div with className of app", () => {
-    expect(app.find(".codexec")).to.
+  it("contiene las rutas", () => {
+    expect(app.find("Route")).toHaveLength(7);
   });
-  console.log("asd");
 });
- 

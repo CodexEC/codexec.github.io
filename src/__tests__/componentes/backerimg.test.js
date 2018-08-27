@@ -6,5 +6,4 @@ describe("<Backerimg />", () => {
   it("renders without crashing", () => {
     shallow(<Backerimg />);
   });
-  console.log("> Backerimg 100%");
 });
