@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 // TODO: arreglar padding muy ancho
 const footerEstilos = theme => ({
   pie: {
-    padding: "4px",
+    padding: "2px",
     position: "fixed",
     display: "flex",
     justifyContent: "flex-end",
