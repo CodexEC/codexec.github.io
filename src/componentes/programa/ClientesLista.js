@@ -7,9 +7,11 @@ import GridRenderer from "../../plantilla/TiposVista/GridRenderer";
 
 const ClientesLista = props => {
   return (
-    <div>
-        <GridRenderer clientes={props.clientes} totalClientes={props.totalClientes} vista={props.vista}/>
-    </div>
+    <GridRenderer
+      clientes={props.clientes}
+      totalClientes={props.totalClientes}
+      vista={props.vista}
+    />
   );
 };
 
@@ -27,7 +29,6 @@ ClientesLista.defaultProps = {
 };
 
 ClientesLista.propTypes = {
-  classes: PropTypes.object.isRequired,
   clientes: PropTypes.array.isRequired,
   order: PropTypes.string,
   ordenarPor: PropTypes.string,

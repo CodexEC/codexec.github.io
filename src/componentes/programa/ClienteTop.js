@@ -26,9 +26,8 @@ const styles = theme => ({
 });
 
 const ClienteTop = props => {
-  const esTopClienteLista = props.tipo === "topLista";
+  const esTopClienteLista = props.tipo === "barraClienteLista";
   const { classes } = props;
-  console.log(props.handleMostrarLista);
   if (esTopClienteLista) {
     return (
       <div
@@ -187,6 +186,10 @@ const ClienteTop = props => {
       </div>
     );
   }
+};
+
+ClienteTop.defaultProps = {
+  top: "barraClienteLista"
 };
 
 ClienteTop.propTypes = {

@@ -16,7 +16,7 @@ const styles = theme => ({
   },
   paper: {
     textAlign: "center",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.paper
   }
 });
 
@@ -33,7 +33,7 @@ class Cliente extends Component {
       vista: "lista",
       totalClientes: 0
     };
-    this.handleAñadirCliente = this.handleAñadirCliente.bind(this);
+    this.handleNuevoCliente = this.handleNuevoCliente.bind(this);
     this.handleMostrarLista = this.handleMostrarLista.bind(this);
     this.handleAnyInputChange = this.handleAnyInputChange.bind(this);
     this.handleSearchToggle = this.handleSearchToggle.bind(this);
@@ -49,7 +49,7 @@ class Cliente extends Component {
     this.clienteservicio = new ClienteServicio();
   }
 
-  handleAñadirCliente(e) {
+  handleNuevoCliente(e) {
     e.preventDefault();
     let form = e.target,
       cliente = {
@@ -148,7 +148,7 @@ class Cliente extends Component {
             <Paper className={classes.paper}>
               <ClienteTop
                 handleMostrarLista={this.handleMostrarLista}
-                tipo="topLista"
+                tipo="barraClienteLista"
               />
               <Divider />
               <ClientesLista
@@ -178,10 +178,10 @@ class Cliente extends Component {
             <Paper className={classes.paper}>
               <ClienteTop
                 handleMostrarLista={this.handleMostrarLista}
-                tipo="topAñadir"
+                tipo="barraClienteNuevo"
               />
               <Divider />
-              <ClienteNuevo handleAñadirCliente={this.handleAñadirCliente} />
+              <ClienteNuevo handleNuevoCliente={this.handleNuevoCliente} />
             </Paper>
           </Grid>
         </Grid>

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import { withTheme } from "@material-ui/core/styles";
 import SwipeableViews from "react-swipeable-views";
 import { Link } from "react-router-dom";
 import Toolbar from "@material-ui/core/AppBar";
@@ -33,24 +33,16 @@ TabContainer.propTypes = {
   dir: PropTypes.string
 };
 
-const styles = theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper
-  }
-});
-
 class Programa extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: 0 };
-    // console.log(this.state.value + " ESTADD");
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeIndex = this.handleChangeIndex.bind(this);
   }
 
   handleChange(event, value) {
     this.setState({ value: value });
-    // console.log(this.state.value + "handle");
   }
 
   handleChangeIndex(index) {
@@ -58,10 +50,9 @@ class Programa extends React.Component {
   }
 
   render() {
-    const { classes, theme } = this.props;
-
+    const { theme } = this.props;
     return (
-      <div className={classes.root}>
+      <div>
         <Toolbar className="no-print" color="default" position="static">
           <Tabs
             centered
@@ -85,7 +76,7 @@ class Programa extends React.Component {
           <TabContainer dir={theme.direction}>
             <Grid container spacing={24}>
               <Grid item xs={12}>
-                <Paper className={classes.paper}>
+                <Paper>
                   <h1>Códigos</h1>
                   <Typography>
                     remite a ella. Art. 1.- La ley es una declaración de la
@@ -110,8 +101,7 @@ class Programa extends React.Component {
 }
 
 Programa.propTypes = {
-  classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(Programa);
+export default withTheme()(Programa);

@@ -11,10 +11,7 @@ import logo from "../../act/img/logo.png";
 import lander1 from "../../act/img/backer100.jpg";
 import lander2 from "../../act/img/backer101.jpg";
 import lander3 from "../../act/img/backer104.jpg";
-import SearchIcon from "@material-ui/icons/Https";
-import MasIcon from "@material-ui/icons/Sms";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
+import Button from "@material-ui/core/Button";
 
 const styles = {
   main: {
@@ -62,29 +59,24 @@ class Bienvenido extends Component {
               style={{
                 width: "100%",
                 display: "flex",
-                justifyContent: "space-evenly"
+                justifyContent: "space-evenly",
+                alignItems: "center"
               }}
               >
-              <Tooltip placement="left" title="Ingreso">
-                <IconButton
-                  aria-label="Ingreso"
-                  component={Link}
-                  style={{ margin: "8px", color: "#f8f8f8" }}
-                  to="/programa"
-                  >
-                  <SearchIcon style={{ fontSize: "36px" }} />
-                </IconButton>
-              </Tooltip>
-              <Tooltip placement="right" title="Saber Más...">
-                <IconButton
-                  aria-label="Saber Más..."
-                  component={Link}
-                  style={{ margin: "8px", color: "#f8f8f8" }}
-                  to="/"
-                  >
-                  <MasIcon style={{ fontSize: "36px" }} />
-                </IconButton>
-              </Tooltip>
+              <Button
+                component={ Link }
+                style={{
+                  color: "#000",
+                  backgroundColor: "#8bc34a",
+                  borderRadius: "40px",
+                  fontWeight: "600"
+                }}
+                to="/programa"
+                variant="contained"
+                >
+                Prueba Codexec Gratis
+              </Button>
+
             </div>
           </div>
         </Backer>
