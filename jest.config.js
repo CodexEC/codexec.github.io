@@ -24,7 +24,7 @@ module.exports = {
     "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
   ],
   testPathIgnorePatterns: ["./src/__tests__/setup/"],
-testURL: "http://localhost",
+  testURL: "http://localhost",
   transform: {
     "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
     "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
