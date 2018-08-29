@@ -7,7 +7,7 @@ import Backer from "../../componentes/backimg";
 import Bot from "../../plantilla/bot";
 import Top from "../../plantilla/top";
 import { withStyles } from "@material-ui/core/styles";
-import logo from "../../act/img/logo.png";
+// import logo from "../../act/img/logo.png";
 import lander1 from "../../act/img/backer100.jpg";
 import lander2 from "../../act/img/backer101.jpg";
 import lander3 from "../../act/img/backer104.jpg";
@@ -42,7 +42,6 @@ class Bienvenido extends Component {
                 flexDirection: "column"
               }}
               >
-              <img alt="codexec" src={logo} />
               <Typography
                 style={{
                   fontFamily: "VT323",
