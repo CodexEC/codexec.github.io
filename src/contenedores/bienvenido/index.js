@@ -76,7 +76,6 @@ class Bienvenido extends Component {
                 >
                 Prueba Codexec Gratis
               </Button>
-
             </div>
           </div>
         </Backer>

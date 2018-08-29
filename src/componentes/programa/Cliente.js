@@ -128,14 +128,10 @@ class Cliente extends Component {
     window.print(console.log("> Imprimir"));
   }
 
-  componentWillMount() {}
-
   componentDidMount() {
     this.datosClientes = this.clienteservicio.traerClientes(this);
     // this.clienteservicio.traerClientes().then(data => this.setState({datosClientes: data}));
   }
-
-  componentWillUnmount() {}
 
   render() {
     const { classes } = this.props;

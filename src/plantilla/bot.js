@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-// TODO: arreglar padding muy ancho
+
 const footerEstilos = theme => ({
   pie: {
     padding: "2px",

@@ -59,7 +59,6 @@ class Backimg extends Component {
   render() {
     const { classes, children, imagenes } = this.props;
     const { efectos, currentSlide, transform } = this.state;
-
     const listaImagenes = imagenes.map((imagen, i) => {
       return (
         <div

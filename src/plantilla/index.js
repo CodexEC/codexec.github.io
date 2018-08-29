@@ -32,7 +32,6 @@ function importar(Component) {
       </MuiThemeProvider>
     );
   }
-
   return conPlantilla;
 }
 
