@@ -28,15 +28,17 @@
       js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="fb-customerchat" attribution=setup_tool page_id="282914058777236" theme_color="#6699cc" logged_in_greeting="m.me/desarrollowebnodejs"
+  <div class="fb-customerchat" attribution=setup_tool page_id="282914058777236" theme_color="#8bc34a" logged_in_greeting="¿Alguna pregunta? Contactanos aquí"
     logged_out_greeting="m.me/desarrollowebnodejs">
   </div>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124746391-1"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-124746391-1');
+    if (document.location.hostname == "https://codexec.github.io") {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'UA-124746391-1');
+    } else { _gaq = { push: function (arg) { console.log("ga:", arg) } } }
   </script>
 </body>
 
